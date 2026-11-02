@@ -152,3 +152,21 @@ h1,h2,h3{text-wrap:balance}
 .hsConVideo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(244,241,236,0),#f4f1ec);pointer-events:none}
 @media (max-width:820px){.hsConVideo .hsVideo{object-position:30% 50%}}
 @media (min-width:821px){.hsConVideo .hsVideo,.hsConVideo .hsPhotoBg{transform:scaleX(-1)}}
+
+/* ---------- Tutte le pagine: stesso tocco della Home ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .pageHero .wrap>*{animation:hsText .9s cubic-bezier(.2,.7,.2,1) both}
+  .pageHero .wrap>*:nth-child(2){animation-delay:.1s}
+  .pageHero .wrap>*:nth-child(3){animation-delay:.2s}
+  .pageHero h1:after{transform-origin:left;animation:hsLine 1.2s .35s cubic-bezier(.2,.7,.2,1) both}
+  .pageHero:before{animation:wowStar 7s ease-in-out infinite alternate}
+  .wowR{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .wowR.wowIn{opacity:1;transform:none}
+}
+@keyframes wowStar{from{opacity:.6;transform:translateY(-50%) rotate(-6deg) scale(.96)}to{opacity:1;transform:translateY(-50%) rotate(6deg) scale(1.04)}}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .programmeItem,.transparencyCards .card,.bankBox,.galleryGrid>*{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
+  .programmeItem:hover,.transparencyCards .card:hover{transform:translateY(-5px);border-color:rgba(217,178,95,.75);box-shadow:0 22px 48px rgba(7,63,43,.12)}
+  .programmeItem:hover .programmeIcon,.transparencyCards .card:hover .iconRound.ico{animation:icoPop .5s ease}
+  .galleryGrid>*:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(7,63,43,.18)}
+}

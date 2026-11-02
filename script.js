@@ -115,3 +115,15 @@ document.addEventListener('keydown', function(e){
   if (!v) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
 })();
+
+// Tutte le pagine: pannelli e schede entrano con calma mentre si scorre
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('main .panel:not([data-reveal]), main .programmeItem:not([data-reveal]), main .transparencyCards .card:not([data-reveal]), main .steps > *:not([data-reveal]), main .programmeWide:not([data-reveal])');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('wowIn'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el, i){ el.classList.add('wowR'); el.style.transitionDelay = (Math.min(i % 4, 3) * 0.08) + 's'; io.observe(el); });
+})();
