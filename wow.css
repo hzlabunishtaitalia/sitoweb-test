@@ -184,3 +184,31 @@ h1,h2,h3{text-wrap:balance}
   .payAction .payBtn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(255,191,32,.35)}
 }
 @media (max-width:820px){.payBox{grid-template-columns:1fr;gap:18px}}
+
+/* Dona ora: riquadri bilanciati */
+.guideGrid{align-items:stretch}
+.guideGrid>.panel{display:flex;flex-direction:column}
+.guideGrid>.panel>.btn:last-child{margin-top:auto;align-self:flex-start}
+.guideGrid .steps{margin-bottom:24px}
+.bigBank{display:grid;gap:8px;padding:22px 24px;background:linear-gradient(135deg,#eef6f8,#f7fbfc);border-color:rgba(7,63,43,.14)}
+.bigBank b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b7f88;font-weight:700}
+.bigBank .iban{font-size:clamp(17px,1.7vw,22px);letter-spacing:.05em;color:#073f2b;font-variant-numeric:tabular-nums}
+.bigBank .btn{justify-self:start;margin-top:8px}
+.cleanSteps li{display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:baseline}
+.cleanSteps li b{grid-column:2;font-size:13px;color:#6b7f88;font-weight:700;letter-spacing:.02em}
+.cleanSteps li:before{grid-row:1 / span 2}
+.cleanSteps li:last-child{border-bottom:0}
+.payBox .payAction{justify-content:center}
+.bigBank+.cleanSteps{margin-top:4px}
+
+/* Header mobile: nome su 2 righe pulite, motto dentro la barra */
+.brand strong{display:block}
+@media (max-width:820px){
+  .brand>div{min-width:0;line-height:1.15}
+  .brand strong{white-space:nowrap;line-height:1.18}
+  .brand span{margin-top:2px;line-height:1.2}
+}
+@media (max-width:400px){
+  .brand strong{font-size:13.5px}
+  .brand span{font-size:10.5px}
+}
