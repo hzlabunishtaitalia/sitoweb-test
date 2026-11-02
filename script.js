@@ -108,3 +108,10 @@ document.addEventListener('keydown', function(e){
   window.addEventListener('mousemove', function(e){ mx = (e.clientX / window.innerWidth) - 0.5; req(); }, {passive:true});
   window.addEventListener('scroll', function(){ sy = window.scrollY; req(); }, {passive:true});
 })();
+
+// Home: video del hero fermo per chi ha chiesto meno animazioni
+(function(){
+  var v = document.querySelector('.hsVideo');
+  if (!v) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+})();
