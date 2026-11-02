@@ -110,22 +110,3 @@ h1,h2,h3{text-wrap:balance}
   .bigHero.hasScene .heroVerse p{font-family:Prata,Georgia,serif;font-size:clamp(20px,1.7vw,25px);line-height:1.5;color:#0d2b3e;max-width:none}
 }
 
-/* ---------- Sezione "Labunishta" con la foto dall'alto ---------- */
-.homeVillage{padding:clamp(64px,9vw,120px) 0;background:linear-gradient(180deg,#eef3f1 0%,#fffdf9 100%)}
-.homeVillageInner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
-.villagePhoto{margin:0;position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(7,63,43,.22);background:#cfd9d3}
-.villagePhoto img{width:100%;height:120%;object-fit:cover;object-position:50% 58%;display:block;will-change:transform}
-.villagePhoto::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(217,178,95,.55);pointer-events:none}
-.villageText h2{font-size:clamp(34px,4vw,54px);line-height:1.12;margin:14px 0 18px;color:#0d2b3e}
-.villageText p{font-size:clamp(17px,1.5vw,20px);line-height:1.7;color:#33505f;margin:0 0 28px;max-width:30em}
-@media (prefers-reduced-motion:no-preference){
-  .villagePhoto[data-reveal]{opacity:1;transform:none;clip-path:inset(12% 12% 12% 12% round 28px);transition:clip-path 1.4s cubic-bezier(.2,.7,.2,1)}
-  .villagePhoto[data-reveal].in{clip-path:inset(0 0 0 0 round 28px)}
-  .villagePhoto img{transform:scale(1.12);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
-  .villagePhoto.in img{transform:scale(1)}
-}
-@media (max-width:820px){
-  .homeVillageInner{grid-template-columns:1fr}
-  .villagePhoto{aspect-ratio:4/5;max-height:72svh;width:100%}
-}
-.villageText .btn.ghost{background:#fff;color:var(--green-dark);border:1px solid rgba(7,63,43,.30);font-size:16px;padding:15px 24px}
