@@ -1,0 +1,14 @@
+Foto di sfondo Home:
+Labunishta.JPG - Wikimedia Commons
+Autore: Marion Golsteijn
+Licenza: Creative Commons Attribution-Share Alike 4.0 International (CC BY-SA 4.0)
+Fonte: https://commons.wikimedia.org/wiki/File:Labunishta.JPG
+
+La foto è stata usata come sfondo grafico della Home con overlay e adattamento CSS.
+
+Sfondo hero (Home e Contatti):
+Foto di montagne innevate da Unsplash (photo-1506905925346-21bda4d32df4).
+Licenza Unsplash: uso gratuito anche commerciale, attribuzione non richiesta.
+https://unsplash.com/license
+In hero-montagne.svg è inclusa un'illustrazione originale usata come
+riserva se la foto esterna non fosse raggiungibile.

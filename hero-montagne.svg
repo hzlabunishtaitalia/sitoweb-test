@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe9f2"/>
+      <stop offset="0.55" stop-color="#ecebe4"/>
+      <stop offset="1" stop-color="#f6e3cd"/>
+    </linearGradient>
+    <radialGradient id="sole" cx="0.72" cy="0.62" r="0.5">
+      <stop offset="0" stop-color="#ffe9c4" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffe9c4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lago" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfdde4"/>
+      <stop offset="1" stop-color="#eef2ef"/>
+    </linearGradient>
+  </defs>
+
+  <!-- cielo e luce -->
+  <rect width="1600" height="900" fill="url(#cielo)"/>
+  <rect width="1600" height="900" fill="url(#sole)"/>
+
+  <!-- catena lontana, azzurra -->
+  <path d="M0 560 L140 470 L260 540 L420 420 L560 530 L700 450 L860 540 L1020 430 L1180 525 L1330 455 L1460 520 L1600 470 L1600 900 L0 900 Z" fill="#b6c6d3"/>
+  <!-- nevi sulle cime lontane -->
+  <path d="M420 420 L470 458 L445 462 L420 445 L395 466 L372 458 Z" fill="#f4f8fa"/>
+  <path d="M1020 430 L1068 466 L1042 470 L1020 452 L996 474 L974 464 Z" fill="#f4f8fa"/>
+
+  <!-- catena media -->
+  <path d="M0 640 L180 540 L330 615 L520 500 L660 605 L840 515 L1010 610 L1200 510 L1380 605 L1600 540 L1600 900 L0 900 Z" fill="#8aa3b2"/>
+  <path d="M520 500 L575 545 L548 550 L520 528 L492 556 L466 546 Z" fill="#fbfdfe"/>
+  <path d="M1200 510 L1252 552 L1226 556 L1200 536 L1174 560 L1150 552 Z" fill="#fbfdfe"/>
+
+  <!-- catena vicina, verde scuro come il logo -->
+  <path d="M0 730 L210 620 L380 700 L600 590 L780 695 L980 605 L1180 700 L1390 615 L1600 690 L1600 900 L0 900 Z" fill="#33524a"/>
+  <path d="M600 590 L652 632 L626 636 L600 616 L574 640 L550 632 Z" fill="#eef5f1"/>
+
+  <!-- lago con riflesso, come nel logo -->
+  <rect y="790" width="1600" height="110" fill="url(#lago)"/>
+  <path d="M0 790 L210 760 L380 782 L600 752 L780 780 L980 756 L1180 782 L1390 758 L1600 778 L1600 800 L0 800 Z" fill="#3d5d55" opacity="0.25"/>
+  <ellipse cx="1150" cy="800" rx="260" ry="7" fill="#ffe9c4" opacity="0.5"/>
+</svg>

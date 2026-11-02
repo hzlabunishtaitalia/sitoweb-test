@@ -1,5 +1,339 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Humanitarno Zdruzenie Labunishta Italia</title><meta name="description" content="Sito ufficiale Humanitarno Zdruzenie Labunishta Italia"><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><img src="logo.jpeg" alt="Logo"><div><strong>Humanitarno Zdruzenie<br>Labunishta Italia</strong><span>Associazione umanitaria</span></div></a><nav class="nav"><a class="active" href="index.html">Home</a><a class="" href="azioni-umanitarie.html">Azioni umanitarie</a><a class="" href="statuto.html">Statuto</a><a class="" href="chi-siamo.html">Chi siamo</a><a class="" href="contatti.html">Contatti</a><a class="donate-top" href="contatti.html#donazioni">Dona ora</a></nav></div></header>
-<main><article class="page"><section class="hero"><div><div class="eyebrow">Labunishta · Italia</div><h1>Uniti per aiutare chi ha bisogno.</h1><p class="lead">Un sito pulito, diviso in pagine separate, pensato per presentare l’associazione, le attività umanitarie, lo statuto e i contatti ufficiali.</p><div class="actions"><a class="btn green" href="azioni-umanitarie.html">Vedi azioni umanitarie</a><a class="btn secondary" href="contatti.html">Contatti e donazioni</a></div></div><img class="hero-logo" src="logo.jpeg" alt="Logo associazione"></section><section class="section"><h2>Sezioni principali</h2><div class="grid"><a class="tile" href="azioni-umanitarie.html"><h3>Azioni umanitarie</h3><p>Raccolte, iniziative e interventi solidali.</p></a><a class="tile" href="statuto.html"><h3>Statuto</h3><p>Principi, scopi e regole dell’associazione.</p></a><a class="tile" href="contatti.html"><h3>Contatti</h3><p>Telefono, WhatsApp, email, PayPal e IBAN.</p></a></div></section></article></main>
-<div class="footer">© 2026 Humanitarno Zdruzenie Labunishta Italia · Tutti i diritti riservati</div><script src="script.js"></script>
-</body></html>
+<!DOCTYPE html>
+<html lang="it">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Home | Humanitarno Zdruzenie Labunishta Italia
+  </title>
+  <meta content="Associazione umanitaria della diaspora di Labunishta in Italia: iniziative solidali, donazioni trasparenti e sostegno alle famiglie in difficoltà." name="description"/>
+   <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+  <meta content="#073f2b" name="theme-color"/>
+  <link href="index.html" hreflang="it" rel="alternate"/>
+  <link href="index-mk.html" hreflang="mk" rel="alternate"/>
+  <meta content="Home | Humanitarno Zdruzenie Labunishta Italia" property="og:title"/>
+  <meta content="Associazione umanitaria della diaspora di Labunishta in Italia: iniziative solidali, donazioni trasparenti e sostegno alle famiglie in difficoltà." property="og:description"/>
+  <meta content="logo.jpeg" property="og:image"/>
+  <meta content="website" property="og:type"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <div class="wrap nav">
+    <a class="brand" href="index.html">
+     <img alt="Logo" src="logo.jpeg"/>
+     <div>
+      <strong>
+       Humanitarno Zdruzenie
+       <br/>
+       Labunishta Italia
+      </strong>
+      <span>
+       Fede • Solidarietà • Comunità
+      </span>
+     </div>
+    </a>
+    <div class="navTools">
+     <a aria-label="Passa al macedone" class="langSwitch" href="index-mk.html">🇲🇰</a>
+    <button aria-expanded="false" aria-label="Apri il menu" class="menuBtn" onclick="toggleMenu()">
+     ☰
+    </button>
+    </div>
+    <nav class="links">
+     <a class="active" href="index.html">
+      Home
+     </a>
+     <a href="chi-siamo.html">
+      Chi siamo
+     </a>
+     <a href="programma-attivita.html">
+      Programma
+     </a>
+     <a href="attivita.html">
+      Attività
+     </a>
+     <a href="trasparenza.html">
+      Trasparenza
+     </a>
+     <a href="contatti.html">
+      Contatti
+     </a>
+     <a class="navDonate" href="guida-bonifico.html">
+      Dona ora
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <section class="bigHero">
+    <div class="wrap">
+     <div class="bigHeroInner">
+      <div class="bigHeroLogo">
+       <img alt="Logo Humanitarno Zdruzenie Labunishta Italia" src="logo.jpeg"/>
+      </div>
+      <span class="kicker">Humanitarno Zdruzenie Labunishta Italia</span>
+      <h1>Uniti per aiutare chi ne ha bisogno</h1>
+      <p>Siamo la diaspora di Labunishta in Italia. Sosteniamo famiglie e comunità con iniziative umanitarie e donazioni gestite con trasparenza.</p>
+      <div class="actions">
+       <a class="btn ghost" href="chi-siamo.html">Scopri chi siamo</a>
+      </div>
+      <div class="quickDonate" data-reveal="">
+       <b>Dona con bonifico — quota associativa</b>
+       <div class="amountRow">
+        <button class="amountBtn sel" data-causale="Quota associativa mensile" onclick="selAmount(this)" type="button">10 €<small>Mensile</small></button>
+        <button class="amountBtn" data-causale="Quota associativa trimestrale" onclick="selAmount(this)" type="button">30 €<small>Trimestrale</small></button>
+        <button class="amountBtn" data-causale="Quota associativa semestrale" onclick="selAmount(this)" type="button">60 €<small>Semestrale</small></button>
+        <button class="amountBtn" data-causale="Quota associativa annuale" onclick="selAmount(this)" type="button">120 €<small>Annuale</small></button>
+       </div>
+       <button class="btn gold" onclick="copyIban()" type="button">Copia IBAN e dona</button>
+       <small>Oppure leggi la <a href="guida-bonifico.html">guida passo per passo</a></small>
+      </div>
+      <div class="heroVerse">
+       <p>“E fate il bene. In verità, Allah ama coloro che fanno il bene.”</p>
+       <small>CORANO 2:195</small>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="pillars">
+    <div class="wrap">
+     <div class="head centered" data-reveal="">
+      <span class="kicker">Perché il tuo aiuto conta</span>
+      <h2>Ogni donazione sostiene quattro impegni</h2>
+     </div>
+     <div class="pillarGrid">
+      <div class="pillar" data-reveal="">
+       <div class="iconRound">🤲</div>
+       <h3>Famiglie</h3>
+       <p>Aiuto diretto alle famiglie e alle persone in difficoltà.</p>
+      </div>
+      <div class="pillar" data-reveal="">
+       <div class="iconRound">🕌</div>
+       <h3>Comunità</h3>
+       <p>Iniziative per la diaspora in Italia e per Labunishta.</p>
+      </div>
+      <div class="pillar" data-reveal="">
+       <div class="iconRound">🤝</div>
+       <h3>Solidarietà</h3>
+       <p>Collaborazione e spirito di aiuto reciproco, con responsabilità.</p>
+      </div>
+      <div class="pillar" data-reveal="">
+       <div class="iconRound">🚨</div>
+       <h3>Emergenze</h3>
+       <p>Raccolte straordinarie e interventi rapidi quando serve.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="promiseBand">
+    <div class="wrap promiseInner" data-reveal="">
+     <span class="kicker">La nostra promessa</span>
+     <h2>Sai sempre dove va la tua donazione</h2>
+     <p>Ogni contributo è registrato e gestito dagli organi dell'associazione secondo lo statuto. Doni, e sai cosa succede dopo.</p>
+     <a class="btn outlineGold" href="trasparenza.html">Come gestiamo le donazioni</a>
+    </div>
+   </section>
+   <section class="givingWays">
+    <div class="wrap">
+     <div class="head centered" data-reveal="">
+      <span class="kicker">Le vie del bene</span>
+      <h2>Ogni gesto generoso conta</h2>
+     </div>
+     <div class="givingGrid">
+      <div class="givingCard" data-reveal="">
+       <h3>Donazione volontaria</h3>
+       <p>Un gesto libero di generosità, di qualsiasi importo, per aiutare subito chi è in difficoltà.</p>
+       <a href="guida-bonifico.html">Dona ora →</a>
+      </div>
+      <div class="givingCard" data-reveal="">
+       <h3>Beneficenza continua</h3>
+       <p>Un sostegno che dura nel tempo: diventa socio con 10 € al mese e accompagna ogni progetto dell'associazione.</p>
+       <a href="programma-attivita.html">Diventa socio →</a>
+      </div>
+      <div class="givingCard" data-reveal="">
+       <h3>Aiuto immediato</h3>
+       <p>Quando una famiglia o la comunità affronta un'emergenza, ogni contributo arriva dove serve, in fretta.</p>
+       <a href="contatti.html">Segnala un bisogno →</a>
+      </div>
+     </div>
+     <p class="hadithLine" data-reveal="">
+      “La carità non diminuisce la ricchezza.”
+      <small>HADITH — SAHIH MUSLIM</small>
+     </p>
+    </div>
+   </section>
+   <section class="section">
+    <div class="wrap">
+     <div class="head centered" data-reveal="">
+      <span class="kicker">Come funziona</span>
+      <h2>Dal tuo bonifico all'aiuto concreto</h2>
+     </div>
+     <div class="howSteps">
+      <div class="howStep" data-reveal="">
+       <b>1</b>
+       <h3>Doni</h3>
+       <p>Con un bonifico all'IBAN dell'associazione o tramite PayPal: anche un piccolo importo fa la differenza.</p>
+      </div>
+      <div class="howStep" data-reveal="">
+       <b>2</b>
+       <h3>Registriamo</h3>
+       <p>Ogni contributo viene verbalizzato e tracciato dagli organi associativi.</p>
+      </div>
+      <div class="howStep" data-reveal="">
+       <b>3</b>
+       <h3>Aiutiamo</h3>
+       <p>I fondi raggiungono le famiglie e i progetti della comunità, in Italia e a Labunishta.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section alt">
+    <div class="wrap">
+     <div class="head centered" data-reveal="">
+      <span class="kicker">Pronto ad aiutare?</span>
+      <h2>Tre modi per fare la tua parte</h2>
+     </div>
+     <div class="actionCards">
+      <div class="actionCard" data-reveal="">
+       <div class="iconRound">💛</div>
+       <h3>Fai una donazione</h3>
+       <p>Con un bonifico o PayPal aiuti subito una famiglia in difficoltà.</p>
+       <a class="btn gold" href="guida-bonifico.html">Dona ora</a>
+      </div>
+      <div class="actionCard" data-reveal="">
+       <div class="iconRound">🤝</div>
+       <h3>Diventa socio</h3>
+       <p>Con 10 € al mese sostieni in modo continuativo tutte le attività dell'associazione.</p>
+       <a class="btn green" href="programma-attivita.html">Scopri come</a>
+      </div>
+      <div class="actionCard" data-reveal="">
+       <div class="iconRound">✉️</div>
+       <h3>Parla con noi</h3>
+       <p>Domande, idee o segnalazioni? Siamo a tua disposizione.</p>
+       <a class="btn navy" href="contatti.html">Contattaci</a>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="wrap footGrid2">
+    <div class="footBrand">
+     <img alt="Logo" src="logo.jpeg"/>
+     <div>
+      <strong>Humanitarno Zdruzenie<br/>Labunishta Italia</strong>
+      <p>Associazione umanitaria senza scopo di lucro della diaspora di Labunishta in Italia, costituita il 15 febbraio 2026.</p>
+     </div>
+    </div>
+    <nav class="footCol">
+     <h4>Esplora</h4>
+     <a href="chi-siamo.html">Chi siamo</a>
+     <a href="programma-attivita.html">Programma</a>
+     <a href="attivita.html">Attività</a>
+     <a href="trasparenza.html">Trasparenza</a>
+     <a href="contatti.html">Contatti</a>
+    </nav>
+    <div class="footCol">
+     <h4>Sostienici</h4>
+     <div class="footIban">
+      Bonifico bancario<br/>
+      <span class="iban">IT65Z0200861624000107426851</span><br/>
+      Intestato a Humanitarno Zdruzenie Labunishta Italia
+     </div>
+     <a href="guida-bonifico.html">→ Guida al bonifico</a>
+    </div>
+   </div>
+   <div class="wrap footLegal">
+    © 2026 Humanitarno Zdruzenie Labunishta Italia. Tutti i diritti riservati.
+   </div>
+  </footer>
+  <div aria-hidden="true" class="popup-overlay" id="whatsappPopup">
+   <div aria-labelledby="whatsappTitle" aria-modal="true" class="popup-box" role="dialog">
+    <div class="popup-header">
+     <h2 id="whatsappTitle">
+      Scegli a chi scrivere
+     </h2>
+     <button aria-label="Chiudi" class="close" onclick="closeWhatsappPopup()">
+      ×
+     </button>
+    </div>
+    <a class="call-option whatsapp-option" href="https://chat.whatsapp.com/BX2s4rIeO6LJdpw2bUPdlZ?mode=gi_t" rel="noopener" target="_blank">
+     <div>
+      <strong>
+       Entra nel gruppo WhatsApp
+      </strong>
+      <p>
+       Humanitarno Zdruzenie Labunishta Italia
+      </p>
+     </div>
+     <span class="call-icon">
+      👥
+     </span>
+    </a>
+    <a class="call-option whatsapp-option" href="https://wa.me/393534282315" rel="noopener" target="_blank">
+     <div>
+      <strong>
+       Drini
+      </strong>
+      <p>
+       +39 353 428 2315
+      </p>
+     </div>
+     <span class="call-icon">
+      💬
+     </span>
+    </a>
+    <a class="call-option whatsapp-option" href="https://wa.me/393772960422" rel="noopener" target="_blank">
+     <div>
+      <strong>
+       Arben
+      </strong>
+      <p>
+       +39 377 296 0422
+      </p>
+     </div>
+     <span class="call-icon">
+      💬
+     </span>
+    </a>
+    <a class="call-option whatsapp-option" href="https://wa.me/393894548861" rel="noopener" target="_blank">
+     <div>
+      <strong>
+       Anes
+      </strong>
+      <p>
+       +39 389 454 8861
+      </p>
+     </div>
+     <span class="call-icon">
+      💬
+     </span>
+    </a>
+    <a class="call-option whatsapp-option" href="https://wa.me/393894496495" rel="noopener" target="_blank">
+     <div>
+      <strong>
+       Haris
+      </strong>
+      <p>
+       +39 389 449 6495
+      </p>
+     </div>
+     <span class="call-icon">
+      💬
+     </span>
+    </a>
+   </div>
+  </div>
+  <button aria-label="Scrivici su WhatsApp" class="waFloat" onclick="openWhatsappPopup()" type="button"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7.2-2.1c1.9 1 4 1.6 6.3 1.6h.5c6.6 0 12-5.4 12-12S22.6 3 16 3zm6.1 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.1-.9-3.4-1.4-5.6-4.9-5.8-5.1-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6.3.8 1 2.7 1.1 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7-.2.2-.4.5-.6.7-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.8 1.7 3.2 1.9.4.2.6.2.9-.1.2-.3 1-1.2 1.3-1.6.3-.4.5-.3.9-.2.4.1 2.3 1.1 2.7 1.3.4.2.7.3.8.5.1.1.1.9-.2 1.7z"/></svg></button>
+  <script src="script.js">
+  </script>
+  <script src="annuncio.js">
+  </script>
+   <script data-goatcounter="https://hzlabunishta.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+ </body>
+</html>

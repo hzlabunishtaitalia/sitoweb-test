@@ -1,0 +1,18 @@
+CARTELLA DOCUMENTI DEL SITO
+
+1) LOCANDINA DELL'AVVISO
+   Il file  locandina-cena.jpg  è quello che si apre come avviso
+   quando qualcuno entra nel sito. Adesso c'è un'immagine di prova:
+   sostituiscila con la vera locandina, tenendo LO STESSO NOME.
+   Deve essere un'immagine (.jpg o .png): sui telefoni i PDF non si
+   vedono dentro la pagina, per questo la locandina e' un'immagine.
+   Se hai solo il PDF, chiedi la conversione in immagine.
+
+2) PDF DA SCARICARE (facoltativo)
+   Puoi mettere qui anche il PDF (es. locandina-cena.pdf) e scrivere
+   il percorso in annuncio.js alla riga  pdf:
+   Comparira' un piccolo bottone "Scarica la locandina" sotto l'avviso.
+
+ATTENZIONE: tutto cio' che finisce in questa cartella e' scaricabile
+da chiunque conosca l'indirizzo. Non mettere qui documenti interni
+(atto costitutivo, codice fiscale, elenchi di soci, dati personali).
