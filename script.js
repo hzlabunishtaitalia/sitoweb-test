@@ -39,7 +39,7 @@ function copyIban(){
     msg = mk ? '<b>IBAN е копиран.</b>' : '<b>IBAN copiato.</b>';
   }
   function done(){
-    if (document.querySelector('.toast') || document.body.classList.contains('homePage')) { showToast(msg); }
+    if (document.querySelector('link[href="wow.css"]')) { showToast(msg); }
     else { alert(msg.replace(/<br>/g,'\n').replace(/<[^>]+>/g,'')); }
   }
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -82,16 +82,29 @@ document.addEventListener('keydown', function(e){
   els.forEach(function(el){ io.observe(el); });
 })();
 
-// Home: dissolvenza lenta tra le foto della prima schermata (ferma con "riduci movimento")
+// Home: scena del lago, le catene di montagne si spostano appena con il mouse e lo scorrimento
 (function(){
-  var imgs = document.querySelectorAll('.hHeroMedia img');
-  if (imgs.length < 2) return;
+  var scene = document.querySelector('.heroScene');
+  if (!scene) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var i = 0;
-  setInterval(function(){
-    if (document.hidden) return;
-    imgs[i].classList.remove('on');
-    i = (i + 1) % imgs.length;
-    imgs[i].classList.add('on');
-  }, 6000);
+  var layers = [
+    {els: scene.querySelectorAll('.hsL1'), k: 0.25},
+    {els: scene.querySelectorAll('.hsL2'), k: 0.55},
+    {els: scene.querySelectorAll('.hsL3'), k: 1}
+  ];
+  var mx = 0, sy = 0, raf = 0;
+  function apply(){
+    raf = 0;
+    layers.forEach(function(l){
+      var x = (mx * 18 * l.k).toFixed(1);
+      var y = (Math.min(sy, 600) * 0.06 * l.k).toFixed(1);
+      l.els.forEach(function(el, idx){
+        // idx 0 = montagne, idx 1 = riflesso (capovolto: si muove al contrario in verticale)
+        el.setAttribute('transform', 'translate(' + x + ' ' + (idx === 0 ? y : -y) + ')');
+      });
+    });
+  }
+  function req(){ if (!raf) raf = requestAnimationFrame(apply); }
+  window.addEventListener('mousemove', function(e){ mx = (e.clientX / window.innerWidth) - 0.5; req(); }, {passive:true});
+  window.addEventListener('scroll', function(){ sy = window.scrollY; req(); }, {passive:true});
 })();
