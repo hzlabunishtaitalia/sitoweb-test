@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMax slice"><defs>
- <linearGradient id="hsFarG" gradientUnits="userSpaceOnUse" x1="0" y1="430" x2="0" y2="600"><stop offset="0" stop-color="#8ea99c"/><stop offset="1" stop-color="#c8d6cf"/></linearGradient>
- <linearGradient id="hsMidG" gradientUnits="userSpaceOnUse" x1="0" y1="330" x2="0" y2="640"><stop offset="0" stop-color="#4f7d3c"/><stop offset=".6" stop-color="#3b6a35"/><stop offset="1" stop-color="#5d8442"/></linearGradient>
- <linearGradient id="hsHaze2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3f1" stop-opacity="0"/><stop offset=".35" stop-color="#eef3f1" stop-opacity=".4"/><stop offset="1" stop-color="#eef3f1" stop-opacity=".4"/></linearGradient>
- <linearGradient id="hsHazeTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6eef0" stop-opacity="0"/><stop offset=".45" stop-color="#e6eef0" stop-opacity=".4"/><stop offset="1" stop-color="#e6eef0" stop-opacity="0"/></linearGradient>
- <linearGradient id="hsFondo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3f1" stop-opacity="0"/><stop offset="1" stop-color="#eef3f1" stop-opacity="1"/></linearGradient>
- <filter id="hsSoft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8"/></filter>
- <filter id="hsSoft2"><feGaussianBlur stdDeviation=".7"/></filter>
-</defs><g><path d="M-80,560 C-41.7,550 81.7,515 150,500 C218.3,485 261.7,469.2 330,470 C398.3,470.8 488.3,505 560,505 C631.7,505 686.7,482.5 760,470 C833.3,457.5 926.7,432.5 1000,430 C1073.3,427.5 1130,448.3 1200,455 C1270,461.7 1336.7,471.7 1420,470 C1503.3,468.3 1653.3,449.2 1700,445 L1700,900 L-80,900 Z" fill="url(#hsFarG)"/></g></svg>

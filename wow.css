@@ -7,14 +7,12 @@
 /* ---------- Scena "Specchio del lago" nella prima schermata ---------- */
 .bigHero.hasScene{background:#eef3f1}
 .heroScene{position:absolute;top:0;left:0;right:0;height:max(calc(100svh - 76px),560px);z-index:0;overflow:hidden}
-.heroScene svg,.heroScene .hsLyr{position:absolute;inset:0;width:100%;height:100%;display:block}
-.heroScene .hsLyr img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;display:block}
+.heroScene svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .bigHero.hasScene::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(100deg,rgba(255,253,249,.9) 0%,rgba(255,253,249,.78) 40%,rgba(255,253,249,.25) 62%,rgba(255,253,249,0) 78%)}
 .bigHero.hasScene .bigHeroInner{z-index:2}
 
 .hsLayer{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.hsLyr.hsLayer{will-change:transform}
 .hsCloud{animation:hsDrift 60s ease-in-out infinite alternate}
 .hsCloud.c2{animation-duration:80s;animation-direction:alternate-reverse}
 .hsSun{animation:hsBreath 9s ease-in-out infinite alternate}
@@ -25,10 +23,9 @@
 
 /* entrata: le montagne salgono dal lago, il riflesso compare, la linea dell'acqua si disegna */
 @media (prefers-reduced-motion:no-preference){
-  .heroScene .hsL1>use,.heroScene .hsL2>use,.heroScene .hsL3>use,.heroScene .hsLyr>img{animation:hsRise 1.6s cubic-bezier(.2,.75,.2,1) both}
-  .heroScene .hsL2>use,.heroScene .hsL2>img{animation-delay:.18s}
-  .heroScene .hsL3>use,.heroScene .hsL3>img{animation-delay:.36s}
-  .heroScene .hsL3>img{animation:hsVillage 1.8s .45s cubic-bezier(.2,.75,.2,1) both}
+  .heroScene .hsL1>use,.heroScene .hsL2>use,.heroScene .hsL3>use{animation:hsRise 1.6s cubic-bezier(.2,.75,.2,1) both}
+  .heroScene .hsL2>use{animation-delay:.18s}
+  .heroScene .hsL3>use{animation-delay:.36s}
   .heroScene .hsReflection{animation:hsFadeIn 2.2s .6s ease both}
   .heroScene .hsHorizon{transform-box:fill-box;transform-origin:center;animation:hsLine 1.4s .2s cubic-bezier(.2,.7,.2,1) both}
   .bigHero.hasScene .bigHeroInner>*{animation:hsText .9s cubic-bezier(.2,.7,.2,1) both}
@@ -38,7 +35,6 @@
   .bigHero.hasScene .bigHeroInner>*:nth-child(5){animation-delay:.42s}
   .bigHero.hasScene .bigHeroInner>*:nth-child(6){animation-delay:.52s}
 }
-@keyframes hsVillage{from{transform:translateY(40px) scale(1.03);opacity:0;filter:blur(6px)}to{transform:none;opacity:1;filter:none}}
 @keyframes hsRise{from{transform:translateY(70px);opacity:0}to{transform:none;opacity:1}}
 @keyframes hsFadeIn{from{opacity:0}to{opacity:.75}}
 @keyframes hsLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -87,14 +83,14 @@
 
 /* computer: scena più vicina, montagne e paese grandi a destra del testo */
 @media (min-width:821px){
-  .heroScene svg,.heroScene .hsLyr{width:128%;left:-4%}
+  .heroScene svg{width:128%;left:-4%}
   .bigHero.hasScene::before{background:linear-gradient(100deg,rgba(255,253,249,.92) 0%,rgba(255,253,249,.8) 36%,rgba(255,253,249,.3) 54%,rgba(255,253,249,0) 66%)}
 }
 
 /* telefono: la scena diventa una cartolina in alto, il logo si appoggia sul lago */
 @media (max-width:820px){
   .heroScene{height:300px}
-  .heroScene svg,.heroScene .hsLyr{width:200%;left:-62%}
+  .heroScene svg{width:200%;left:-62%}
   .bigHero.hasScene{align-items:flex-start}
   .bigHero.hasScene::before{background:linear-gradient(180deg,rgba(255,253,249,0) 0,rgba(255,253,249,0) 235px,rgba(255,253,249,.75) 290px,#fffdf9 330px)}
   .bigHero.hasScene .bigHeroInner{padding-top:236px}
