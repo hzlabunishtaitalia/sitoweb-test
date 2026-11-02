@@ -14,14 +14,18 @@
   <link href="index.html" hreflang="it" rel="alternate"/>
   <meta content="Почетна | Humanitarno Zdruzenie Labunishta Italia" property="og:title"/>
   <meta content="Хуманитарно здружение Лабуништа Италија: хуманитарни иницијативи, транспарентни донации и поддршка за семејствата на кои им е потребна помош." property="og:description"/>
-  <meta content="logo.jpeg" property="og:image"/>
+  <meta content="https://hzlabunishta.it/og-image.jpg" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="summary_large_image" name="twitter:card"/>
   <meta content="website" property="og:type"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
   <link href="style.css" rel="stylesheet"/>
+  <link href="home.css" rel="stylesheet"/>
  </head>
- <body>
+ <body class="homePage" id="top">
   <header class="topbar">
    <div class="wrap nav">
     <a class="brand" href="index-mk.html">
@@ -39,9 +43,7 @@
     </a>
     <div class="navTools">
      <a aria-label="Cambia in italiano" class="langSwitch" href="index.html">🇮🇹</a>
-    <button aria-expanded="false" aria-label="Отвори мени" class="menuBtn" onclick="toggleMenu()">
-     ☰
-    </button>
+    <button aria-expanded="false" aria-label="Отвори мени" class="menuBtn" onclick="toggleMenu()"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
     <nav class="links">
      <a class="active" href="index-mk.html">
@@ -68,187 +70,106 @@
     </nav>
    </div>
   </header>
-  <main>
-   <section class="bigHero">
-    <div class="wrap">
-     <div class="bigHeroInner">
-      <div class="bigHeroLogo">
-       <img alt="Лого на Хуманитарно здружение Лабуништа Италија" src="logo.jpeg"/>
+  <main class="home">
+   <section class="hHero" aria-labelledby="hTitle">
+    <div class="hHeroMedia" aria-hidden="false">
+     <img class="on" src="assets/gallerie/donatorska-vecer-2026/foto-30.jpg" alt="Заедничка вечера на дијаспората пред Исламскиот центар Еманет во Сусегана" width="1600" height="1067" fetchpriority="high"/>
+     <img src="assets/gallerie/donatorska-vecer-2026/foto-26.jpg" alt="" width="1600" height="1067" loading="lazy"/>
+     <img src="assets/gallerie/donatorska-vecer-2026/foto-31.jpg" alt="" width="1600" height="1067" loading="lazy"/>
+    </div>
+    <div class="wrap hHeroText">
+     <h1 id="hTitle">Заедно за Лабуништа</h1>
+     <p class="hLead">Хуманитарно здружение на дијаспората на Лабуништа во Италија. Поддржуваме семејства и заедници со хуманитарни иницијативи и транспарентно управувани донации.</p>
+     <div class="hHeroFoot">
+      <a class="hBtn gold" href="#donacija">Донирајте</a>
+      <span class="hCap">Донаторска вечер, Сусегана, 17 октомври 2026</span>
+     </div>
+    </div>
+   </section>
+
+   <section class="hIntro" aria-labelledby="introTitle">
+    <div class="wrap hIntroGrid">
+     <div class="hIntroText" data-reveal="">
+      <h2 id="introTitle">Дијаспората на Лабуништа</h2>
+      <p>Од цела Италија, обединети со вера и солидарност. Секоја донација поддржува четири заложби.</p>
+      <dl class="hPillars"><div><dt>Семејства</dt><dd>Директна помош за семејствата и лицата на кои им е потребна помош.</dd></div><div><dt>Заедница</dt><dd>Иницијативи за дијаспората во Италија и за Лабуништа.</dd></div><div><dt>Солидарност</dt><dd>Соработка и заемна помош, со одговорност.</dd></div><div><dt>Итни случаи</dt><dd>Вонредни собирања и брзи интервенции кога е потребно.</dd></div></dl>
+      <a class="hLink" href="chi-siamo-mk.html">Дознајте кои сме →</a>
+     </div>
+     <figure class="hPano" data-reveal="">
+      <img src="labunishta-panorama.jpg" alt="Поглед на Лабуништа со џамијата и ридовите" width="824" height="582" loading="lazy"/>
+      <figcaption>Лабуништа</figcaption>
+     </figure>
+    </div>
+   </section>
+
+   <section class="hEvent" aria-labelledby="evTitle">
+    <img class="hEventBg" src="assets/gallerie/donatorska-vecer-2026/foto-27.jpg" alt="Илјадници луѓе на заедничката вечера под дрвото" width="1600" height="1067" loading="lazy"/>
+    <div class="wrap hEventGrid">
+     <div class="hEventCard" data-reveal="">
+      <h2 id="evTitle">Донаторска вечер 2026</h2>
+      <p class="hWhen">17 октомври 2026 · Исламски центар Еманет, Сусегана</p>
+      <img src="assets/gallerie/donatorska-vecer-2026/foto-25.jpg" alt="Имамите и гостите на вечерта" width="1600" height="1067" loading="lazy"/>
+      <p>Молитва, заедничка вечера и вечер со предавања, за џамијата во Лабуништа. Благодарност до сите донатори и волонтери.</p>
+      <a class="hBtn paper" href="attivita-mk.html">Погледнете ја галеријата</a>
+     </div>
+    </div>
+   </section>
+
+   <section class="hHow" aria-labelledby="howTitle">
+    <div class="wrap hHowGrid">
+     <h2 id="howTitle" data-reveal="">Од донација до помош</h2>
+      <div class="hStep s1" data-reveal="">
+       <img src="assets/gallerie/donatorska-vecer-2026/foto-21.jpg" alt="Луѓе пристигнуваат на вечерта" loading="lazy" width="1600" height="1067"/>
+       <p><b>Донирате.</b> Со банкарска уплата на IBAN-от на здружението или преку PayPal: и мал износ прави разлика.</p>
       </div>
-      <span class="kicker">Хуманитарно здружение Лабуништа Италија</span>
-      <h1>Обединети за да им помогнеме на оние на кои им е потребна помош</h1>
-      <p>Ние сме дијаспората на Лабуништа во Италија. Поддржуваме семејства и заедници со хуманитарни иницијативи и транспарентно управувани донации.</p>
-      <div class="actions">
-       <a class="btn ghost" href="chi-siamo-mk.html">Дознајте кои сме</a>
+      <div class="hStep s2" data-reveal="">
+       <img src="assets/gallerie/donatorska-vecer-2026/foto-36.jpg" alt="Гостите и предавачите на вечерта" loading="lazy" width="1600" height="1067"/>
+       <p><b>Евидентираме.</b> Органите на здружението го евидентираат и го следат секој придонес, согласно статутот. <a href="trasparenza-mk.html">Како управуваме со донациите</a></p>
       </div>
-      <div class="quickDonate" data-reveal="">
-       <b>Донирајте со банкарска уплата — членарина</b>
-       <div class="amountRow">
-        <button class="amountBtn sel" data-causale="Quota associativa mensile" onclick="selAmount(this)" type="button">10 €<small>Месечна</small></button>
-        <button class="amountBtn" data-causale="Quota associativa trimestrale" onclick="selAmount(this)" type="button">30 €<small>Тримесечна</small></button>
-        <button class="amountBtn" data-causale="Quota associativa semestrale" onclick="selAmount(this)" type="button">60 €<small>Полугодишна</small></button>
-        <button class="amountBtn" data-causale="Quota associativa annuale" onclick="selAmount(this)" type="button">120 €<small>Годишна</small></button>
+      <div class="hStep s3" data-reveal="">
+       <img src="assets/gallerie/donatorska-vecer-2026/foto-16.jpg" alt="Волонтерите на здружението" loading="lazy" width="1600" height="1067"/>
+       <p><b>Помагаме.</b> Средствата стигнуваат до семејствата и проектите на заедницата, во Италија и во Лабуништа.</p>
+      </div>
+    </div>
+   </section>
+
+   <section class="hGive" id="donacija" aria-labelledby="giveTitle">
+    <div class="hStrip" aria-hidden="false"><img src="assets/gallerie/donatorska-vecer-2026/foto-29.jpg" alt="Волонтерите служат вечера" loading="lazy" width="1600" height="1067"/><img src="assets/gallerie/donatorska-vecer-2026/foto-32.jpg" alt="Волонтери на масата" loading="lazy" width="1600" height="1067"/><img src="assets/gallerie/donatorska-vecer-2026/foto-12.jpg" alt="Заедницата во џамијата" loading="lazy" width="1600" height="1067"/></div>
+    <div class="hBand">
+     <div class="wrap hBandGrid">
+      <div class="hGiveMain" data-reveal="">
+       <h2 id="giveTitle">Донирајте или станете член</h2>
+       <p>Со 10 € месечно постојано ги поддржувате сите активности на здружението. Изберете износ и копирајте го IBAN-от.</p>
+       <div class="amountRow" role="group" aria-label="Износ на членарината"><button aria-pressed="true" class="amountBtn sel" data-causale="Quota associativa mensile" onclick="selAmount(this)" type="button">10 €<small>Месечна</small></button><button aria-pressed="false" class="amountBtn" data-causale="Quota associativa trimestrale" onclick="selAmount(this)" type="button">30 €<small>Тримесечна</small></button><button aria-pressed="false" class="amountBtn" data-causale="Quota associativa semestrale" onclick="selAmount(this)" type="button">60 €<small>Полугодишна</small></button><button aria-pressed="false" class="amountBtn" data-causale="Quota associativa annuale" onclick="selAmount(this)" type="button">120 €<small>Годишна</small></button></div>
+       <p class="hIban"><span>IBAN</span> <strong>IT65 Z020 0861 6240 0010 7426 851</strong><br/>Примач: Humanitarno Zdruzenie Labunishta Italia</p>
+       <div class="hGiveActions">
+        <button class="hBtn gold" onclick="copyIban()" type="button">Копирајте IBAN</button>
+        <a class="hLink light" href="guida-bonifico-mk.html">Упатство чекор по чекор →</a>
+        <a class="hLink light" href="https://paypal.me/hzlabunishtaitalia" rel="noopener" target="_blank">Донирајте преку PayPal →</a>
        </div>
-       <button class="btn gold" onclick="copyIban()" type="button">Копирајте IBAN и донирајте</button>
-       <small>Или прочитајте го <a href="guida-bonifico-mk.html">упатството чекор по чекор</a></small>
       </div>
-      <div class="heroVerse">
-       <p>„И правете добро. Навистина, Аллах ги сака оние што прават добро.“</p>
-       <small>КУРАН 2:195</small>
-      </div>
-     </div>
-    </div>
-   </section>
-   <section class="pillars">
-    <div class="wrap">
-     <div class="head centered" data-reveal="">
-      <span class="kicker">Зошто вашата помош е важна</span>
-      <h2>Секоја донација поддржува четири заложби</h2>
-     </div>
-     <div class="pillarGrid">
-      <div class="pillar" data-reveal="">
-       <div class="iconRound">🤲</div>
-       <h3>Семејства</h3>
-       <p>Директна помош за семејствата и лицата на кои им е потребна помош.</p>
-      </div>
-      <div class="pillar" data-reveal="">
-       <div class="iconRound">🕌</div>
-       <h3>Заедница</h3>
-       <p>Иницијативи за дијаспората во Италија и за Лабуништа.</p>
-      </div>
-      <div class="pillar" data-reveal="">
-       <div class="iconRound">🤝</div>
-       <h3>Солидарност</h3>
-       <p>Соработка и заемна помош, со одговорност.</p>
-      </div>
-      <div class="pillar" data-reveal="">
-       <div class="iconRound">🚨</div>
-       <h3>Итни случаи</h3>
-       <p>Вонредни собирања и брзи интервенции кога е потребно.</p>
-      </div>
-     </div>
-    </div>
-   </section>
-   <section class="promiseBand">
-    <div class="wrap promiseInner" data-reveal="">
-     <span class="kicker">Нашето ветување</span>
-     <h2>Секогаш знаете каде оди вашата донација</h2>
-     <p>Органите на здружението го евидентираат секој придонес и управуваат со средствата согласно статутот. Донирате — и знаете што се случува потоа.</p>
-     <a class="btn outlineGold" href="trasparenza-mk.html">Како управуваме со донациите</a>
-    </div>
-   </section>
-   <section class="givingWays">
-    <div class="wrap">
-     <div class="head centered" data-reveal="">
-      <span class="kicker">Патиштата на доброто</span>
-      <h2>Секој великодушен гест е важен</h2>
-     </div>
-     <div class="givingGrid">
-      <div class="givingCard" data-reveal="">
-       <h3>Доброволна донација</h3>
-       <p>Доброволен придонес, во кој било износ, за брза помош на оние на кои им е потребна.</p>
-       <a href="guida-bonifico-mk.html">Донирајте сега →</a>
-      </div>
-      <div class="givingCard" data-reveal="">
-       <h3>Трајна добротворност</h3>
-       <p>Поддршка што трае: станете член со 10 € месечно и придонесувајте за сите активности на здружението.</p>
-       <a href="programma-attivita-mk.html">Станете член →</a>
-      </div>
-      <div class="givingCard" data-reveal="">
-       <h3>Непосредна помош</h3>
-       <p>Кога некое семејство или заедницата ќе се соочи со итен случај, секој придонес брзо стигнува таму каде што е најпотребен.</p>
-       <a href="contatti-mk.html">Пријавете потреба →</a>
-      </div>
-     </div>
-     <p class="hadithLine" data-reveal="">
-      „Милостината не го намалува богатството.“
-      <small>ХАДИС — САХИХ МУСЛИМ</small>
-     </p>
-    </div>
-   </section>
-   <section class="section">
-    <div class="wrap">
-     <div class="head centered" data-reveal="">
-      <span class="kicker">Како функционира</span>
-      <h2>Од вашиот трансфер до конкретна помош</h2>
-     </div>
-     <div class="howSteps">
-      <div class="howStep" data-reveal="">
-       <b>1</b>
-       <h3>Донирате</h3>
-       <p>Со банкарска уплата на IBAN-от на здружението или преку PayPal — и мал износ прави разлика.</p>
-      </div>
-      <div class="howStep" data-reveal="">
-       <b>2</b>
-       <h3>Евидентираме</h3>
-       <p>Органите на здружението го евидентираат и го следат секој придонес.</p>
-      </div>
-      <div class="howStep" data-reveal="">
-       <b>3</b>
-       <h3>Помагаме</h3>
-       <p>Средствата стигнуваат до семејствата и проектите на заедницата, во Италија и во Лабуништа.</p>
-      </div>
-     </div>
-    </div>
-   </section>
-   <section class="section alt">
-    <div class="wrap">
-     <div class="head centered" data-reveal="">
-      <span class="kicker">Подготвени да помогнете?</span>
-      <h2>Три начини да го дадете вашиот придонес</h2>
-     </div>
-     <div class="actionCards">
-      <div class="actionCard" data-reveal="">
-       <div class="iconRound">💛</div>
-       <h3>Донирајте</h3>
-       <p>Со банкарска уплата или PayPal веднаш му помагате на семејство на кое му е потребна помош.</p>
-       <a class="btn gold" href="guida-bonifico-mk.html">Донирајте сега</a>
-      </div>
-      <div class="actionCard" data-reveal="">
-       <div class="iconRound">🤝</div>
-       <h3>Станете член</h3>
-       <p>Со 10 € месечно постојано ги поддржувате сите активности на здружението.</p>
-       <a class="btn green" href="programma-attivita-mk.html">Дознајте како</a>
-      </div>
-      <div class="actionCard" data-reveal="">
-       <div class="iconRound">✉️</div>
-       <h3>Контактирајте нè</h3>
-       <p>Прашања, идеи или предлози? Ви стоиме на располагање.</p>
-       <a class="btn navy" href="contatti-mk.html">Контакт</a>
-      </div>
+      <figure class="hVerse" data-reveal="">
+       <blockquote>„И правете добро. Навистина, Аллах ги сака оние што прават добро.“</blockquote>
+       <figcaption>Куран 2:195</figcaption>
+       <blockquote class="small">„Милостината не го намалува богатството.“</blockquote>
+       <figcaption>Хадис, Сахих Муслим</figcaption>
+      </figure>
      </div>
     </div>
    </section>
   </main>
-  <footer class="footer">
-   <div class="wrap footGrid2">
-    <div class="footBrand">
-     <img alt="Лого" src="logo.jpeg"/>
-     <div>
-      <strong>Хуманитарно здружение<br/>Лабуништа Италија</strong>
-      <p>Непрофитно хуманитарно здружение на дијаспората на Лабуништа во Италија, основано на 15 февруари 2026.</p>
+  <footer class="hFooter">
+   <div class="wrap">
+    <div class="hFootTop">
+     <div class="hFootBrand">
+      <img alt="" src="logo.jpeg" width="56" height="56"/>
+      <p><strong>Хуманитарно здружение Лабуништа Италија</strong><br/>Непрофитно хуманитарно здружение на дијаспората на Лабуништа во Италија, основано во април 2025.<br/>Вера • Солидарност • Заедница</p>
      </div>
+     <nav class="hFootNav" aria-label="Footer"><a href="chi-siamo-mk.html">За нас</a><a href="programma-attivita-mk.html">Програма</a><a href="attivita-mk.html">Активности</a><a href="trasparenza-mk.html">Транспарентност</a><a href="contatti-mk.html">Контакт</a><a href="#top">Нагоре ↑</a></nav>
     </div>
-    <nav class="footCol">
-     <h4>Истражете</h4>
-     <a href="chi-siamo-mk.html">Кои сме</a>
-     <a href="programma-attivita-mk.html">Програма</a>
-     <a href="attivita-mk.html">Активности</a>
-     <a href="trasparenza-mk.html">Транспарентност</a>
-     <a href="contatti-mk.html">Контакт</a>
-    </nav>
-    <div class="footCol">
-     <h4>Поддржете нè</h4>
-     <div class="footIban">
-      Банкарска уплата<br/>
-      <span class="iban">IT65Z0200861624000107426851</span><br/>
-      Примач: Humanitarno Zdruzenie Labunishta Italia
-     </div>
-     <a href="guida-bonifico-mk.html">→ Упатство за уплата</a>
-    </div>
-   </div>
-   <div class="wrap footLegal">
-    © 2026 Хуманитарно здружение Лабуништа Италија. Сите права се задржани.
+    <p class="hFootWrite">Пишете ни</p>
+    <a class="hFootMail" href="mailto:info.labunishta.italia@gmail.com">info.labunishta.italia<wbr/>@gmail.com</a>
+    <div class="hFootLegal"><span>© 2025–2026 Хуманитарно здружение Лабуништа Италија</span><span>Susegana · Italia</span></div>
    </div>
   </footer>
   <div aria-hidden="true" class="popup-overlay" id="whatsappPopup">
