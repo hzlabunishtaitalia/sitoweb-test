@@ -212,3 +212,36 @@ h1,h2,h3{text-wrap:balance}
   .brand strong{font-size:13.5px}
   .brand span{font-size:10.5px}
 }
+
+/* Trasparenza: schede ordinate */
+.split.transparencyPanel{align-items:stretch;gap:24px}
+.split.transparencyPanel>.panel{margin:0}
+.transparencyCards{gap:18px}
+.transparencyCards .card h3{margin:14px 0 6px}
+.transparencyCards .card p strong{font-size:20px;letter-spacing:.06em;color:#073f2b}
+.list.twoCol{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.list.rolesList{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.list.rolesList li{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fbfaf7;font-weight:600;color:#073f2b}
+.list.rolesList li:first-child{grid-column:1/-1;background:#073f2b;color:#fff;border-color:#073f2b}
+.list.rolesList li:first-child:before{color:#d9b25f}
+@media (max-width:820px){.list.twoCol{grid-template-columns:1fr}}
+@media (max-width:380px){.list.rolesList{grid-template-columns:1fr}}
+.content .wrap>.split.transparencyPanel:last-child>.panel:last-child{background:linear-gradient(150deg,#073f2b,#0b5a3d);border-color:#073f2b;color:#fff}
+.content .wrap>.split.transparencyPanel:last-child>.panel:last-child h2{color:#fff}
+.content .wrap>.split.transparencyPanel:last-child>.panel:last-child p{color:rgba(255,255,255,.82)}
+.content .wrap>.split.transparencyPanel:last-child>.panel:last-child .kicker{color:#d9b25f}
+
+/* Programma: quota e donazioni bilanciate */
+section.programmeWide{grid-template-columns:1fr 1fr}
+@media (max-width:820px){section.programmeWide{grid-template-columns:1fr}}
+.memberBox,.donationBox{display:flex;flex-direction:column;align-items:flex-start;padding:28px}
+.donationBox .kicker{margin-bottom:6px}
+.donationBox h3{margin-top:6px}
+.feeBadge{align-items:center;gap:12px;margin-top:auto;padding:14px 20px}
+.feeBadge strong{font-size:34px}
+.feeBadge span{font-size:15px;line-height:1.25;font-weight:800}
+.donationBox .donateBtn{margin-top:auto;background:linear-gradient(90deg,#e8c265,#d4a73c);color:#3a2c08;padding:14px 22px}
+.donationBox p{margin-bottom:18px}
+.memberBox p{margin-bottom:18px}
+.donationBox .donateBtn span{transition:transform .25s}
+.donationBox .donateBtn:hover span{transform:translateX(4px)}
