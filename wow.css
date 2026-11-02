@@ -96,3 +96,16 @@
   .bigHero.hasScene .bigHeroInner{padding-top:236px}
   .bigHero.hasScene .bigHeroLogo{position:relative;z-index:3}
 }
+
+/* ---------- Computer: Home più ordinata (stessi contenuti) ---------- */
+h1,h2,h3{text-wrap:balance}
+@media (min-width:1024px){
+  .bigHero.hasScene .bigHeroInner{max-width:none;width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:stretch;padding-bottom:72px}
+  .bigHero.hasScene .bigHeroInner>*{grid-column:1/-1;max-width:760px}
+  .bigHero.hasScene .bigHeroInner>p{max-width:600px}
+  .bigHero.hasScene .bigHeroInner>.actions{margin-bottom:clamp(40px,8vh,96px)}
+  .bigHero.hasScene .quickDonate{grid-column:1;max-width:none;margin:0}
+  .bigHero.hasScene .heroVerse{grid-column:2;max-width:none;margin:0;display:flex;flex-direction:column;justify-content:center;
+    padding:34px 40px;border-radius:22px;background:rgba(255,255,255,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .bigHero.hasScene .heroVerse p{font-family:Prata,Georgia,serif;font-size:clamp(20px,1.7vw,25px);line-height:1.5;color:#0d2b3e;max-width:none}
+}
