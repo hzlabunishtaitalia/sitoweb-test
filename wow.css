@@ -130,9 +130,9 @@ h1,h2,h3{text-wrap:balance}
 .heroScene.hsFotoNuvole svg{width:100%;left:0}
 @media (min-width:821px){.heroScene.hsFotoNuvole{height:auto;bottom:0}}
 .bigHero.hasScene:has(.hsFotoNuvole)::before{background:linear-gradient(100deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.46) 52%,rgba(255,255,255,.14) 100%)}
-.hsNube{animation:hsNubeMove 90s linear infinite}
-.hsNube.n2{animation-duration:65s}
-.hsNube.n3{animation-duration:48s}
+.hsNube{animation:hsNubeMove 60s linear infinite}
+.hsNube.n2{animation-duration:40s}
+.hsNube.n3{animation-duration:28s}
 @keyframes hsNubeMove{from{transform:translateX(0)}to{transform:translateX(-1600px)}}
 @media (prefers-reduced-motion:no-preference){
   .hsFotoNuvole .hsPhotoBg{animation:hsKenB 40s ease-in-out infinite alternate}
