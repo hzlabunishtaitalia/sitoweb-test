@@ -114,3 +114,8 @@
   .heroScene svg.hsMoon{top:auto;bottom:24%;right:6%}
   .bigHero.hasScene:has(.hsFoto)::before{background:linear-gradient(180deg,rgba(255,253,249,.95) 0%,rgba(255,253,249,.85) 55%,rgba(255,253,249,.2) 80%,rgba(255,253,249,0) 100%)}
 }
+.heroScene svg.hsMoschea{position:absolute;inset:auto;right:9%;bottom:14px;width:clamp(170px,21vw,330px);height:auto;filter:drop-shadow(0 6px 14px rgba(7,63,43,.25))}
+@media (prefers-reduced-motion:no-preference){
+  .heroScene svg.hsMoschea{animation:hsMoonUp 1.8s .9s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (max-width:820px){.heroScene svg.hsMoschea{right:4%;width:140px;bottom:90px}}
