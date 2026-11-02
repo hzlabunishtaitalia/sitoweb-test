@@ -100,7 +100,8 @@ document.addEventListener('keydown', function(e){
       var y = (Math.min(sy, 600) * 0.06 * l.k).toFixed(1);
       l.els.forEach(function(el, idx){
         // idx 0 = montagne, idx 1 = riflesso (capovolto: si muove al contrario in verticale)
-        el.setAttribute('transform', 'translate(' + x + ' ' + (idx === 0 ? y : -y) + ')');
+        if (el instanceof SVGElement) el.setAttribute('transform', 'translate(' + x + ' ' + (idx === 0 ? y : -y) + ')');
+        else el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
       });
     });
   }
