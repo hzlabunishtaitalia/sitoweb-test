@@ -75,68 +75,52 @@
  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
   <defs>
    <linearGradient id="hsCielo" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#d6e4ee"/><stop offset=".6" stop-color="#eef0ea"/><stop offset="1" stop-color="#f7e6cf"/>
+    <stop offset="0" stop-color="#c9dbe8"/><stop offset=".55" stop-color="#e9eee9"/><stop offset="1" stop-color="#f8e5c8"/>
    </linearGradient>
-   <radialGradient id="hsSole" cx=".74" cy=".66" r=".42">
-    <stop offset="0" stop-color="#ffe6b8" stop-opacity=".95"/><stop offset="1" stop-color="#ffe6b8" stop-opacity="0"/>
+   <radialGradient id="hsSole" cx=".74" cy=".64" r=".45">
+    <stop offset="0" stop-color="#ffe2ad" stop-opacity=".95"/><stop offset="1" stop-color="#ffe2ad" stop-opacity="0"/>
    </radialGradient>
    <linearGradient id="hsLago" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#9fbccb"/><stop offset=".5" stop-color="#c9dbe2"/><stop offset="1" stop-color="#eef3f1"/>
+    <stop offset="0" stop-color="#8fb0c2"/><stop offset=".5" stop-color="#c2d6df"/><stop offset="1" stop-color="#eef3f1"/>
    </linearGradient>
-   <linearGradient id="hsRifl" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/>
+   <linearGradient id="hsVelo" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#eef3f1" stop-opacity=".15"/><stop offset="1" stop-color="#eef3f1" stop-opacity=".85"/>
    </linearGradient>
-   <mask id="hsMaskRifl"><rect x="0" y="640" width="1600" height="260" fill="url(#hsRifl)"/></mask>
    <filter id="hsOnde" x="0" y="0" width="100%" height="100%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.004 0.06" numOctaves="2" seed="4" result="n">
-     <animate attributeName="baseFrequency" dur="14s" values="0.004 0.06;0.006 0.075;0.004 0.06" repeatCount="indefinite"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.003 0.07" numOctaves="2" seed="4" result="n">
+     <animate attributeName="baseFrequency" dur="14s" values="0.003 0.07;0.005 0.085;0.003 0.07" repeatCount="indefinite"/>
     </feTurbulence>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="12" xChannelSelector="R" yChannelSelector="G"/>
    </filter>
-   <filter id="hsSfuma"><feGaussianBlur stdDeviation="18"/></filter>
-
-   <!-- catene: colori presi dal logo (blu notte, verde, neve) -->
-   <g id="hsFar">
-    <path d="M-60 640 L120 520 L250 585 L420 455 L560 560 L720 480 L880 575 L1040 460 L1200 560 L1350 490 L1480 548 L1660 500 L1660 640 Z" fill="#b4c6d4"/>
-    <path d="M420 455 L462 487 L440 490 L420 476 L398 494 L378 488 Z M1040 460 L1084 494 L1060 497 L1040 482 L1018 500 L996 492 Z" fill="#f6f9fb"/>
-   </g>
-   <g id="hsMid">
-    <path d="M-60 640 L170 555 L330 612 L520 520 L670 608 L850 540 L1020 615 L1210 528 L1390 610 L1660 556 L1660 640 Z" fill="#7f9bb0"/>
-    <path d="M520 520 L566 556 L543 560 L520 543 L497 564 L474 556 Z M1210 528 L1254 562 L1232 566 L1210 550 L1188 570 L1166 562 Z" fill="#fbfdfe"/>
-   </g>
-   <g id="hsNear">
-    <path d="M-60 640 L240 568 L400 618 L640 532 L760 590 L880 556 L990 610 L1160 548 L1300 600 L1460 566 L1660 612 L1660 640 Z" fill="#1f3b57"/>
-    <path d="M640 532 L760 590 L880 556 L990 610 L1040 640 L560 640 Z" fill="#4e7a4c" opacity=".92"/>
-    <path d="M1160 548 L1300 600 L1460 566 L1560 640 L1080 640 Z" fill="#5d8a4e" opacity=".85"/>
-    <path d="M640 532 L684 562 L660 566 L640 552 L618 570 L598 562 Z" fill="#f2f7f4"/>
-   </g>
+   <filter id="hsSfuma" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>
+   <filter id="hsGrana"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="g"/><feColorMatrix in="g" type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .06"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
+<image id="hsM1" href="assets/montagne/monti-1.webp" x="0" y="0" width="1600" height="640" preserveAspectRatio="none"/>
+<image id="hsM2" href="assets/montagne/monti-2.webp" x="0" y="0" width="1600" height="640" preserveAspectRatio="none"/>
+<image id="hsM3" href="assets/montagne/monti-3.webp" x="0" y="0" width="1600" height="640" preserveAspectRatio="none"/>
   </defs>
-
   <rect width="1600" height="900" fill="url(#hsCielo)"/>
   <rect class="hsSun" width="1600" height="900" fill="url(#hsSole)"/>
-  <g class="hsClouds" filter="url(#hsSfuma)" opacity=".7">
-   <ellipse class="hsCloud c1" cx="300" cy="200" rx="220" ry="38" fill="#fff"/>
-   <ellipse class="hsCloud c2" cx="1150" cy="150" rx="260" ry="32" fill="#fff"/>
+  <g class="hsClouds" filter="url(#hsSfuma)" opacity=".75">
+   <ellipse class="hsCloud c1" cx="300" cy="190" rx="240" ry="34" fill="#fff"/>
+   <ellipse class="hsCloud c2" cx="1150" cy="140" rx="280" ry="30" fill="#fff"/>
   </g>
-
-  <g class="hsLayer hsL1"><use href="#hsFar"/></g>
-  <g class="hsLayer hsL2"><use href="#hsMid"/></g>
-  <g class="hsLayer hsL3"><use href="#hsNear"/></g>
-
-  <!-- lago -->
+    <g class="hsLayer hsL1"><use href="#hsM1"/></g>
+    <rect class="hsMist" x="-100" y="560" width="1800" height="80" fill="#f4f6f4" opacity="0.4" filter="url(#hsSfuma)"/>
+    <g class="hsLayer hsL2"><use href="#hsM2"/></g>
+    <rect class="hsMist" x="-100" y="600" width="1800" height="50" fill="#f4f6f4" opacity="0.3" filter="url(#hsSfuma)"/>
+    <g class="hsLayer hsL3"><use href="#hsM3"/></g>
   <rect y="640" width="1600" height="260" fill="url(#hsLago)"/>
-  <!-- riflesso: le stesse montagne capovolte, come nel logo -->
-  <g class="hsReflection" filter="url(#hsOnde)" opacity=".75">
-   <g transform="translate(0 1280) scale(1 -1)">
-    <g class="hsLayer hsL1"><use href="#hsFar"/></g>
-    <g class="hsLayer hsL2"><use href="#hsMid"/></g>
-    <g class="hsLayer hsL3"><use href="#hsNear"/></g>
+  <g class="hsReflection" filter="url(#hsOnde)" opacity=".7">
+   <g transform="translate(0 1281) scale(1 -1)">
+    <g class="hsLayer hsL1"><use href="#hsM1"/></g>
+    <rect class="hsMist" x="-100" y="560" width="1800" height="80" fill="#f4f6f4" opacity="0.4" filter="url(#hsSfuma)"/>
+    <g class="hsLayer hsL2"><use href="#hsM2"/></g>
+    <rect class="hsMist" x="-100" y="600" width="1800" height="50" fill="#f4f6f4" opacity="0.3" filter="url(#hsSfuma)"/>
+    <g class="hsLayer hsL3"><use href="#hsM3"/></g>
    </g>
   </g>
-  <rect y="640" width="1600" height="260" fill="#eef3f1" mask="url(#hsMaskRifl)" opacity=".35"/>
-  <ellipse class="hsGlint" cx="1180" cy="660" rx="240" ry="5" fill="#fff3d6" opacity=".7"/>
-  <!-- linea dell'acqua -->
-  <rect class="hsHorizon" x="0" y="639" width="1600" height="2.5" fill="#ffffff" opacity=".9"/>
+  <rect y="640" width="1600" height="260" fill="url(#hsVelo)"/>
+  <rect class="hsHorizon" x="0" y="639.5" width="1600" height="2" fill="#ffffff" opacity=".85"/>
  </svg>
 </div>
 
