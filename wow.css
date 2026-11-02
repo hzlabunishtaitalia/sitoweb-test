@@ -170,3 +170,17 @@ h1,h2,h3{text-wrap:balance}
   .programmeItem:hover .programmeIcon,.transparencyCards .card:hover .iconRound.ico{animation:icoPop .5s ease}
   .galleryGrid>*:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(7,63,43,.18)}
 }
+
+/* ---------- "Dona ora": PayPal subito in cima ---------- */
+.payBox{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center;margin-bottom:26px;border:1px solid rgba(217,178,95,.45)}
+.payBox h2{margin:8px 0 8px}
+.payBox p{margin:0;color:#4a6470}
+.payAction{display:flex;flex-direction:column;gap:10px}
+.payAction .payBtn{margin-top:0;min-height:58px;font-size:17px;justify-content:flex-start}
+.payAction .payBtn .contactExactArrow{margin-left:auto}
+.payAction small{color:#6b7f88;font-size:13.5px}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .payAction .payBtn{transition:transform .3s ease,box-shadow .3s ease}
+  .payAction .payBtn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(255,191,32,.35)}
+}
+@media (max-width:820px){.payBox{grid-template-columns:1fr;gap:18px}}
