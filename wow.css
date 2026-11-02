@@ -245,3 +245,8 @@ section.programmeWide{grid-template-columns:1fr 1fr}
 .memberBox p{margin-bottom:18px}
 .donationBox .donateBtn span{transition:transform .25s}
 .donationBox .donateBtn:hover span{transform:translateX(4px)}
+
+/* Bandiere lingua (SVG, visibili anche su Windows) */
+.langSwitch .flagImg{display:block;width:24px;height:16px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 2px 5px rgba(0,0,0,.15);transition:transform .25s}
+.langSwitch:hover .flagImg{transform:scale(1.1)}
+@media (max-width:820px){.navTools .langSwitch .flagImg{width:28px;height:19px}}
