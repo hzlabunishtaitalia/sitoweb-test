@@ -1,109 +1,106 @@
 /* ============================================================
-   home.css — nuova Home (Fase 1, novembre 2026)
+   home.css — Home come guida per chi vuole unirsi (Fase 1, v2)
    Vale solo per index.html e index-mk.html (body.homePage).
    Colori ufficiali: verde #073f2b, oro #d9b25f. Caratteri: Prata + Inter.
    ============================================================ */
 .homePage{
-  --g:#073f2b; --g2:#0a4a33; --gold:#d9b25f; --gold-ink:#8a6a1f;
+  --g:#073f2b; --gold:#d9b25f; --gold-ink:#8a6a1f;
   --paper:#f4f2ec; --paper2:#e9e6dd; --ink:#10261d; --muted:#3f564b;
-  --gap:clamp(96px,12vw,176px);
+  --gap:clamp(96px,11vw,168px);
   background:var(--paper); color:var(--ink);
 }
 .homePage .wrap{width:auto;max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-.home h1,.home h2{font-family:Prata,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.04;margin:0}
-.home h2{font-size:clamp(34px,4.2vw,60px);max-width:16ch}
+.home h1,.home h2,.home h3{font-family:Prata,Georgia,serif;font-weight:400;letter-spacing:-.015em;margin:0}
+.home h2{font-size:clamp(36px,4.4vw,60px);line-height:1.05}
+.home h3{font-size:clamp(22px,2vw,28px);line-height:1.2}
 .home p{font-size:18px;line-height:1.55;margin:0}
 .home img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* testata e menu sulla Home: colori piatti, senza linea */
+.homePage .topbar{border-bottom:0;box-shadow:none;background:var(--paper)}
+.homePage .navDonate{background:var(--gold)!important;color:#1d1606!important;box-shadow:none!important}
+.homePage .menuBtn{color:var(--g)}
 
 /* ---------- Pulsanti e link ---------- */
 .hBtn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;border:0;
   font:800 17px/1 Inter,sans-serif;text-decoration:none;cursor:pointer;transition:transform .18s ease,background-color .18s ease}
 .hBtn.gold{background:var(--gold);color:#1d1606}
 .hBtn.gold:hover{background:#e4c274}
-.hBtn.paper{background:var(--paper);color:var(--g)}
-.hBtn.paper:hover{background:#fff}
+.hBtn.wa{background:var(--paper);color:var(--g)}
+.hBtn.wa:hover{background:#fff}
 .hBtn:active{transform:scale(.97)}
 .hBtn:focus-visible,.hLink:focus-visible,.amountBtn:focus-visible,.hFootNav a:focus-visible,.hFootMail:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.hLink{display:inline-block;font-weight:800;font-size:17px;color:var(--g);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.hLink{display:inline-block;font-weight:800;font-size:17px;color:var(--g);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;transition:color .15s ease}
 .hLink:hover{color:var(--gold-ink)}
 .hLink.light{color:var(--paper)}
 .hLink.light:hover{color:var(--gold)}
 
-/* ---------- Prima schermata: foto a tutto schermo, titolo in basso ---------- */
-.hHero{position:relative;min-height:calc(100svh - 76px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--g)}
-.hHeroMedia{position:absolute;inset:0}
-.hHeroMedia img{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;animation:hDrift 24s ease-in-out infinite alternate}
-@keyframes hDrift{from{transform:scale(1)}to{transform:scale(1.06)}}
-.hHeroMedia img.on{opacity:1}
-.hHero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.45) 45%,rgba(0,0,0,.12) 75%);pointer-events:none}
-.hHeroText{position:relative;z-index:1;width:100%;padding-bottom:clamp(24px,4vw,44px);display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:32px}
-.hLead{grid-column:1;max-width:46ch;font-size:19px!important;margin-top:20px!important;color:#f3efe6}
-.hHero h1{grid-column:1;grid-row:1;font-size:clamp(52px,8.4vw,132px);line-height:.98;color:#fff;max-width:11ch}
-.hHeroFoot{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding-bottom:10px}
-.hCap{font-size:14px;color:#ddd6c6}
-/* testata e menu sulla Home: colori piatti, senza linea */
-.homePage .topbar{border-bottom:0;box-shadow:none}
-.homePage .navDonate{background:var(--gold)!important;color:#1d1606!important;box-shadow:none!important}
-.homePage .menuBtn{color:var(--g)}
+/* ---------- Prima schermata: testo a sinistra, Labunishta a destra ---------- */
+.hHero{padding:clamp(32px,5vw,72px) 0 clamp(64px,7vw,104px)}
+.hHeroGrid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hHero h1{font-size:clamp(48px,5.6vw,84px);line-height:1;color:var(--g)}
+.hLead{margin-top:28px!important;font-size:20px!important;line-height:1.5!important;max-width:34ch}
+.hHeroActions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:36px}
+.hHeroPic{margin:0;overflow:hidden}
+.hHeroPic img{aspect-ratio:4/3;height:auto;animation:hDrift 26s ease-in-out infinite alternate}
+.hHeroPic figcaption{margin-top:10px;font-size:15px;color:var(--muted)}
+@keyframes hDrift{from{transform:scale(1)}to{transform:scale(1.05)}}
 
-/* ---------- Chi siamo: titolo che entra nella foto ---------- */
-.hIntro{padding:var(--gap) 0 calc(var(--gap) * .7)}
-.hIntroGrid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:start}
-.hIntroText{grid-column:1/7;position:relative;z-index:1}
-.hIntroText>p{margin-top:24px!important;font-size:21px!important;line-height:1.45!important;max-width:30ch}
-.hPillars{margin:40px 0 36px;display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
-.hPillars dt{font-family:Prata,Georgia,serif;font-size:24px;color:var(--g);margin-bottom:6px}
-.hPillars dd{margin:0;font-size:17px;line-height:1.5;color:var(--ink)}
-.hPano{grid-column:7/13;margin:0;margin-top:120px;aspect-ratio:4/3}
-.hPano figcaption{margin-top:10px;font-size:15px;color:var(--muted)}
+/* ---------- Chi siamo: campo verde ---------- */
+.hWho{background:var(--g);color:var(--paper);padding:var(--gap) 0 calc(var(--gap)*.8)}
+.hWhoHead{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px);align-items:start}
+.hWhoHead h2{color:#fff}
+.hWhoHead p{font-size:22px!important;line-height:1.45!important;color:#f0ece2;max-width:40ch}
+.hMission{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(56px,7vw,96px)}
+.hMission h3{color:var(--gold)}
+.hMission p{margin-top:12px!important;color:#e9e4d8}
+.hWhoLinks{margin-top:56px!important;display:flex;gap:28px;flex-wrap:wrap}
+.hBandPic{height:min(70svh,640px)!important}
 
-/* ---------- La cena dei donatori: foto piena con scheda ---------- */
-.hEvent{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--g)}
-.hEventBg{position:absolute;inset:0}
-.hEventGrid{position:relative;width:100%}
-.hEventCard{background:var(--g);color:var(--paper);width:min(400px,100%);margin-left:clamp(0px,8vw,120px);padding:32px;display:flex;flex-direction:column;gap:16px}
-.hEventCard h2{font-size:clamp(30px,2.6vw,38px);color:#fff}
-.hEventCard .hWhen{font-size:16px;color:var(--gold)}
-.hEventCard img{aspect-ratio:3/2;height:auto}
-.hEventCard p{font-size:17px;color:#e9e4d8}
-.hEventCard .hBtn{align-self:stretch;margin-top:6px}
+/* ---------- Cosa facciamo: elenco del programma ---------- */
+.hWhat{padding:var(--gap) 0}
+.hWhatGrid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,6vw,96px);align-items:start}
+.hWhatHead{position:sticky;top:110px}
+.hWhatHead p{margin-top:20px!important;max-width:30ch}
+.hWhatHead .hLink{margin-top:28px}
+.hProg{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.hProg li{display:grid;grid-template-columns:5fr 7fr;gap:24px;padding:32px;background:var(--paper2)}
+.hProg li h3{color:var(--g)}
+.hProg li p{font-size:17px}
 
-/* ---------- Come funziona: foto in diagonale ---------- */
-.hHow{padding:var(--gap) 0}
-.hHowGrid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:0}
-.hHow h2{grid-column:7/13;grid-row:1;align-self:start}
-.hStep{display:grid;gap:20px;align-content:start}
-.hStep p{max-width:36ch}
-.hStep p a{color:var(--g);font-weight:800;text-underline-offset:4px}
-.hStep b{color:var(--g)}
-.hStep.s1{grid-column:1/5;grid-row:1/3}
-.hHow h2{margin-top:40px}
-.hStep.s1 img{aspect-ratio:3/4;height:auto}
-.hStep.s2{grid-column:7/10;grid-row:2;margin-top:56px}
-.hStep.s2 img{aspect-ratio:1/1;height:auto}
-.hStep.s3{grid-column:6/12;grid-row:3;margin-top:72px}
-.hStep.s3 img{aspect-ratio:16/10;height:auto}
-
-/* ---------- Dona: striscia di tre foto, poi campo verde ---------- */
-.hStrip{display:grid;grid-template-columns:repeat(3,1fr);height:40svh;min-height:240px}
-.hBand{background:var(--g);color:var(--paper);padding:clamp(64px,8vw,120px) 0}
-.hBandGrid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:start}
-.hGiveMain h2{color:#fff}
-.hGiveMain>p{margin-top:20px!important;color:#e9e4d8;max-width:46ch}
-.hGive .amountRow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:32px 0 24px;max-width:560px}
-.hGive .amountBtn{background:transparent;color:var(--paper);border:2px solid rgba(247,243,234,.35);border-radius:16px;padding:14px 6px;font:800 18px/1.1 Inter,sans-serif;cursor:pointer;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
-.hGive .amountBtn small{display:block;font-size:13px;font-weight:600;margin-top:4px;opacity:.9}
-.hGive .amountBtn:hover{border-color:var(--gold)}
-.hGive .amountBtn.sel{background:var(--gold);border-color:var(--gold);color:#1d1606}
-.hGive .amountBtn:active{transform:scale(.97)}
+/* ---------- Come diventare socio ---------- */
+.hJoin{background:var(--g);color:var(--paper);padding:var(--gap) 0}
+.hJoinGrid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:start}
+.hJoin h2{color:#fff}
+.hSteps{list-style:none;counter-reset:st;margin:48px 0 0;padding:0;display:grid;gap:48px}
+.hSteps li{counter-increment:st;display:grid;grid-template-columns:56px 1fr;column-gap:20px}
+.hSteps li::before{content:counter(st);grid-row:1/span 6;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#1d1606;
+  display:grid;place-items:center;font:400 24px/1 Prata,Georgia,serif}
+.hSteps li>*{grid-column:2}
+.hSteps h3{color:#fff}
+.hSteps p{margin-top:10px!important;color:#e9e4d8;max-width:46ch}
+.hSteps .hBtn.wa{justify-self:start;margin-top:20px}
+.hJoin .amountRow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 20px;max-width:560px}
+.hJoin .amountBtn{background:transparent;color:var(--paper);border:2px solid rgba(247,243,234,.35);border-radius:16px;padding:14px 6px;font:800 18px/1.1 Inter,sans-serif;cursor:pointer;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
+.hJoin .amountBtn small{display:block;font-size:13px;font-weight:600;margin-top:4px;opacity:.9}
+.hJoin .amountBtn:hover{border-color:var(--gold)}
+.hJoin .amountBtn.sel{background:var(--gold);border-color:var(--gold);color:#1d1606}
+.hJoin .amountBtn:active{transform:scale(.97)}
 .hIban{font-size:16px!important;color:#e9e4d8}
 .hIban span{color:var(--gold);font-weight:800}
 .hIban strong{font-size:20px;letter-spacing:.02em;color:#fff;font-variant-numeric:tabular-nums}
-.hGiveActions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:28px}
-.hVerse{margin:0;padding-top:8px}
+.hGiveActions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:24px}
+.hVerse{margin:0;padding-top:120px}
 .hVerse blockquote{margin:0;font-family:Prata,Georgia,serif;font-size:clamp(24px,2.3vw,32px);line-height:1.3;color:#fff}
 .hVerse blockquote.small{font-size:22px;margin-top:40px}
 .hVerse figcaption{margin-top:12px;font-size:15px;color:var(--gold)}
+
+/* ---------- Attività: rimando alle gallerie ---------- */
+.hActs{padding:var(--gap) 0 0}
+.hActsHead{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px);align-items:end;margin-bottom:48px}
+.hActsHead p{max-width:44ch}
+.hActsHead .hLink{margin-top:12px}
+.hActsStrip{display:grid;grid-template-columns:repeat(3,1fr);height:42svh;min-height:260px}
 
 /* ---------- Piè di pagina ---------- */
 .hFooter{background:var(--paper2);color:var(--ink);padding:56px 0 28px}
@@ -126,43 +123,34 @@
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast b{color:#d9b25f}
 
-/* ---------- Telefono ---------- */
+/* ---------- Tablet e telefono ---------- */
 @media (max-width:900px){
-  .hIntroText{grid-column:1/-1}
-  .hPano{grid-column:4/13;margin-top:48px}
-  .hHow h2{grid-column:1/-1;grid-row:auto;margin-bottom:40px}
-  .hStep.s1,.hStep.s2,.hStep.s3{grid-row:auto;margin-top:0}
-  .hStep.s1{grid-column:1/-1}
-  .hStep.s1 img{aspect-ratio:4/3}
-  .hStep.s2{grid-column:5/-1;margin-top:56px}
-  .hStep.s3{grid-column:1/11;margin-top:56px}
-  .hBandGrid{grid-template-columns:1fr}
+  .hHeroGrid{grid-template-columns:1fr;min-height:0}
+  .hWhoHead,.hWhatGrid,.hJoinGrid,.hActsHead{grid-template-columns:1fr}
+  .hWhatHead{position:static}
+  .hMission{grid-template-columns:1fr;gap:32px}
+  .hVerse{padding-top:0}
 }
 @media (max-width:640px){
   .home p{font-size:17px}
-  .hHero{min-height:calc(100svh - 72px)}
-  .hHeroMedia img{object-position:60% center}
-  .hHeroText{grid-template-columns:1fr}
-  .hLead{font-size:18px!important;order:2;margin:16px 0 0!important}
-  .hHero h1{grid-column:1;grid-row:1;font-size:clamp(46px,13vw,64px);order:1}
-  .hHeroFoot{grid-column:1;grid-row:auto;order:3;align-items:stretch;padding-bottom:0;margin-top:20px}
-  .hHeroFoot .hBtn{width:100%}
-  .hCap{font-size:13px}
-  .hPillars{grid-template-columns:1fr;gap:20px}
-  .hIntroText>p{font-size:19px!important}
-  .hEvent{min-height:auto;flex-direction:column;align-items:stretch}
-  .hEventBg{position:relative;height:56svh}
-  .hEventGrid{padding:0}
-  .hEventCard{margin:0;width:100%;padding:28px 20px 32px}
-  .hStep.s2{grid-column:4/-1}
-  .hStrip{grid-template-columns:1fr 1fr;height:auto;min-height:0}
-  .hStrip img:first-child{grid-column:1/-1;aspect-ratio:4/3}
-  .hStrip img:not(:first-child){aspect-ratio:1/1}
-  .hGive .amountRow{grid-template-columns:repeat(2,1fr)}
-  .hGiveActions .hBtn{width:100%}
+  .hHero{padding-top:24px}
+  .hHero h1{font-size:clamp(44px,13vw,60px)}
+  .hLead{font-size:18px!important;margin-top:18px!important}
+  .hHeroActions{margin-top:24px}
+  .hHeroActions .hBtn{width:100%}
+  .hWhoHead p{font-size:19px!important}
+  .hProg li{grid-template-columns:1fr;gap:10px;padding:24px 20px}
+  .hSteps li{grid-template-columns:44px 1fr;column-gap:14px}
+  .hSteps li::before{width:40px;height:40px;font-size:20px}
+  .hJoin .amountRow{grid-template-columns:repeat(2,1fr)}
+  .hGiveActions .hBtn,.hSteps .hBtn.wa{width:100%}
+  .hActsStrip{grid-template-columns:1fr 1fr;height:auto;min-height:0}
+  .hActsStrip img:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .hActsStrip img:not(:first-child){aspect-ratio:1/1}
+  .hBandPic{height:46svh!important}
   .hFootLegal{flex-direction:column;gap:6px}
 }
 @media (prefers-reduced-motion:reduce){
-  .hHeroMedia img{transition:none;animation:none}
-  .hBtn,.amountBtn,.toast{transition:none}
+  .hHeroPic img{animation:none}
+  .hBtn,.amountBtn,.toast,.hLink{transition:none}
 }
