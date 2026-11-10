@@ -18,6 +18,11 @@
       Fine! La galleria appare da sola su entrambe le pagine (IT e MK).
 
    La prima foto della lista viene usata come copertina.
+
+   MINIATURE (facoltative): dentro ogni cartella c'è una sottocartella
+   mini/  con le stesse foto in piccolo (foto-01.webp ecc.): servono a
+   far caricare in fretta l'album. Se mancano, il sito usa le foto
+   grandi e funziona lo stesso. Per crearle, chiedimelo.
    ============================================================ */
 
 const GALLERIE = [
@@ -80,72 +85,194 @@ const GALLERIE = [
   var grid = document.getElementById('galleryGrid');
   if (!grid) return;
   var mk = document.documentElement.lang === 'mk';
-  var current = null, index = 0;
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var T = mk
+    ? { open: 'Разгледај ги фотографиите', photos: 'фотографии', close: 'Затвори', prev: 'Претходна', next: 'Следна', back: 'Назад кон галериите' }
+    : { open: 'Sfoglia le foto', photos: 'foto', close: 'Chiudi', prev: 'Precedente', next: 'Successiva', back: 'Torna alle gallerie' };
 
   if (!GALLERIE.length) {
     grid.innerHTML = '<p class="muted">' + (mk ? 'Наскоро ќе бидат објавени првите фотогалерии.' : 'Presto saranno pubblicate le prime gallerie fotografiche.') + '</p>';
     return;
   }
+  grid.classList.add('gWow');
 
+  function full(g, i) { return g.cartella + g.foto[i]; }
+  function mini(g, i) { return g.cartella + 'mini/' + g.foto[i].replace(/\.[a-z0-9]+$/i, '.webp'); }
+  /* immagine piccola; se la miniatura non esiste usa la foto grande */
+  function miniImg(g, i, cls) {
+    var im = document.createElement('img');
+    im.className = cls || ''; im.alt = ''; im.decoding = 'async';
+    im.onerror = function () { im.onerror = null; im.src = full(g, i); };
+    im.src = mini(g, i);
+    return im;
+  }
+  function tr(g) {
+    return { title: mk ? (g.titoloMk || g.titolo) : g.titolo, date: mk ? (g.dataMk || g.data) : g.data,
+             desc: mk ? (g.descrizioneMk || '') : (g.descrizione || '') };
+  }
+
+  /* ---------- Copertine: pila di foto, la copertina cambia da sola ---------- */
   GALLERIE.forEach(function (g, gi) {
+    var t = tr(g);
     var card = document.createElement('article');
     card.className = 'galleryCard';
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
-    var title = mk ? (g.titoloMk || g.titolo) : g.titolo;
-    var date = mk ? (g.dataMk || g.data) : g.data;
-    var desc = mk ? (g.descrizioneMk || '') : (g.descrizione || '');
-    card.setAttribute('aria-label', title);
+    card.setAttribute('aria-label', t.title + ' — ' + T.open);
     card.innerHTML =
-      '<div class="galleryCover"><img alt="' + title + '" loading="lazy" src="' + g.cartella + g.foto[0] + '"/>' +
-      '<span class="galleryCount">📷 ' + g.foto.length + '</span></div>' +
-      '<div class="galleryBody"><h3>' + title + '</h3>' +
-      '<p><strong>' + date + '</strong>' + (desc ? ' — ' + desc : '') + '</p></div>';
-    function open() { openLb(gi, 0); }
+      '<span class="gSheet s1"></span><span class="gSheet s2"></span>' +
+      '<div class="gFace"><div class="galleryCover"></div>' +
+      '<div class="gShade"></div>' +
+      '<span class="galleryCount">' + g.foto.length + ' ' + T.photos + '</span>' +
+      '<div class="gCaption"><small>' + t.date + '</small><h3>' + t.title + '</h3>' +
+      '<span class="gCta">' + T.open + ' <i>→</i></span></div></div>' +
+      (t.desc ? '<p class="gDesc">' + t.desc + '</p>' : '');
+    var cover = card.querySelector('.galleryCover');
+    var n = Math.min(g.foto.length, 6), slides = [];
+    for (var i = 0; i < n; i++) {
+      var im = document.createElement('img');
+      im.alt = i === 0 ? t.title : ''; im.decoding = 'async';
+      if (i === 0) { im.src = full(g, 0); im.className = 'on'; }
+      else { im.setAttribute('data-src', full(g, i)); }
+      cover.appendChild(im); slides.push(im);
+    }
+    [1, 2].forEach(function (k) {
+      var sh = card.querySelector('.gSheet.s' + k);
+      if (g.foto[k]) sh.appendChild(miniImg(g, k));
+    });
+    if (!calm && n > 1) {
+      var cur = 0;
+      setTimeout(function () {
+        setInterval(function () {
+          if (document.hidden || album.classList.contains('open')) return;
+          var nx = (cur + 1) % n, el = slides[nx];
+          function swap() { slides[cur].classList.remove('on'); el.classList.add('on'); cur = nx; }
+          if (!el.src) { el.onload = swap; el.src = el.getAttribute('data-src'); } else swap();
+        }, 3600);
+      }, gi * 1200);
+    }
+    function open(e) { openAlbum(gi, e); }
     card.addEventListener('click', open);
     card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
     grid.appendChild(card);
   });
 
-  // ----- Lightbox -----
-  var lb = document.createElement('div');
-  lb.className = 'lightbox';
-  lb.innerHTML =
-    '<button aria-label="' + (mk ? 'Затвори' : 'Chiudi') + '" class="lbClose" type="button">×</button>' +
-    '<button aria-label="' + (mk ? 'Претходна' : 'Precedente') + '" class="lbPrev" type="button">‹</button>' +
-    '<img alt="" class="lbImg"/>' +
-    '<button aria-label="' + (mk ? 'Следна' : 'Successiva') + '" class="lbNext" type="button">›</button>' +
-    '<div class="lbBar"></div>';
-  document.body.appendChild(lb);
-  var img = lb.querySelector('.lbImg'), bar = lb.querySelector('.lbBar');
+  /* ---------- Album a tutto schermo: tutte le foto a mosaico ---------- */
+  var album = document.createElement('div');
+  album.className = 'gAlbum';
+  album.setAttribute('role', 'dialog'); album.setAttribute('aria-modal', 'true');
+  album.innerHTML =
+    '<div class="gAlbumBar"><div><small></small><h2></h2></div>' +
+    '<button class="gAlbumClose" type="button" aria-label="' + T.back + '">×</button></div>' +
+    '<div class="gAlbumBody"><p class="gAlbumDesc"></p><div class="gMosaic"></div></div>';
+  document.body.appendChild(album);
+  var mosaic = album.querySelector('.gMosaic'), current = null, index = 0, lastCard = null;
 
-  function show() {
-    var g = GALLERIE[current];
-    var title = mk ? (g.titoloMk || g.titolo) : g.titolo;
-    img.src = g.cartella + g.foto[index];
-    img.alt = title + ' — ' + (index + 1);
-    bar.textContent = title + '  ·  ' + (index + 1) + ' / ' + g.foto.length;
+  function openAlbum(gi, e) {
+    var g = GALLERIE[gi], t = tr(g);
+    current = gi; lastCard = grid.children[gi];
+    album.querySelector('h2').textContent = t.title;
+    album.querySelector('small').textContent = t.date + '  ·  ' + g.foto.length + ' ' + T.photos;
+    album.querySelector('.gAlbumDesc').textContent = t.desc;
+    mosaic.innerHTML = '';
+    g.foto.forEach(function (f, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'gTile';
+      b.setAttribute('aria-label', t.title + ' — ' + (i + 1));
+      var im = miniImg(g, i);
+      im.loading = i < 8 ? 'eager' : 'lazy';
+      function shown() { b.classList.add('ok'); }
+      im.addEventListener('load', shown);
+      if (im.complete && im.naturalWidth) shown();
+      b.style.transitionDelay = (Math.min(i, 12) * 0.045) + 's';
+      b.appendChild(im);
+      b.addEventListener('click', function () { openLb(i); });
+      mosaic.appendChild(b);
+    });
+    var x = e && e.clientX ? e.clientX : window.innerWidth / 2, y = e && e.clientY ? e.clientY : window.innerHeight / 2;
+    album.style.setProperty('--ox', x + 'px'); album.style.setProperty('--oy', y + 'px');
+    album.querySelector('.gAlbumBody').scrollTop = 0;
+    album.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    album.querySelector('.gAlbumClose').focus();
   }
-  function openLb(gi, i) { current = gi; index = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  function step(d) { var n = GALLERIE[current].foto.length; index = (index + d + n) % n; show(); }
+  function closeAlbum() {
+    album.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastCard) lastCard.focus();
+  }
+  album.querySelector('.gAlbumClose').addEventListener('click', closeAlbum);
+
+  /* ---------- Visore: foto grande, striscia di miniature, scorrimento ---------- */
+  var lb = document.createElement('div');
+  lb.className = 'lightbox gLb';
+  lb.innerHTML =
+    '<div class="lbTop"><span class="lbBar"></span><button aria-label="' + T.close + '" class="lbClose" type="button">×</button></div>' +
+    '<button aria-label="' + T.prev + '" class="lbPrev" type="button">‹</button>' +
+    '<div class="lbStage"><img alt="" class="lbImg"/></div>' +
+    '<button aria-label="' + T.next + '" class="lbNext" type="button">›</button>' +
+    '<div class="lbStrip"></div>';
+  document.body.appendChild(lb);
+  var img = lb.querySelector('.lbImg'), bar = lb.querySelector('.lbBar'), strip = lb.querySelector('.lbStrip'), stage = lb.querySelector('.lbStage');
+
+  function show(dir) {
+    var g = GALLERIE[current], t = tr(g);
+    var src = full(g, index);
+    img.classList.remove('inL', 'inR', 'in0');
+    void img.offsetWidth;
+    img.src = src;
+    img.alt = t.title + ' — ' + (index + 1);
+    img.classList.add(dir > 0 ? 'inR' : dir < 0 ? 'inL' : 'in0');
+    bar.textContent = (index + 1) + ' / ' + g.foto.length;
+    var th = strip.children;
+    for (var i = 0; i < th.length; i++) th[i].classList.toggle('on', i === index);
+    if (th[index]) {
+      var el = th[index];
+      strip.scrollTo({ left: el.offsetLeft - strip.clientWidth / 2 + el.clientWidth / 2, behavior: calm ? 'auto' : 'smooth' });
+    }
+    [1, -1].forEach(function (d) { var k = (index + d + g.foto.length) % g.foto.length; new Image().src = full(g, k); });
+  }
+  function openLb(i) {
+    var g = GALLERIE[current];
+    index = i;
+    strip.innerHTML = '';
+    g.foto.forEach(function (f, k) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-label', String(k + 1));
+      var im = miniImg(g, k); im.loading = 'lazy';
+      b.appendChild(im);
+      b.addEventListener('click', function (e) { e.stopPropagation(); var d = k > index ? 1 : -1; index = k; show(d); });
+      strip.appendChild(b);
+    });
+    lb.classList.add('open');
+    show(0);
+  }
+  function closeLb() { lb.classList.remove('open'); }
+  function step(d) { var n = GALLERIE[current].foto.length; index = (index + d + n) % n; show(d); }
 
   lb.querySelector('.lbClose').addEventListener('click', closeLb);
   lb.querySelector('.lbPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
   lb.querySelector('.lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
-  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  stage.addEventListener('click', function (e) { if (e.target === stage) closeLb(); });
   document.addEventListener('keydown', function (e) {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') step(-1);
-    if (e.key === 'ArrowRight') step(1);
+    if (lb.classList.contains('open')) {
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    } else if (album.classList.contains('open') && e.key === 'Escape') closeAlbum();
   });
-  // swipe su telefono
-  var x0 = null;
-  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  lb.addEventListener('touchend', function (e) {
+  // telefono: la foto segue il dito, poi passa alla successiva
+  var x0 = null, dx = 0;
+  stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; dx = 0; img.style.transition = 'none'; }, { passive: true });
+  stage.addEventListener('touchmove', function (e) {
     if (x0 === null) return;
-    var dx = e.changedTouches[0].clientX - x0;
+    dx = e.touches[0].clientX - x0;
+    img.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx / 40) + 'deg)';
+    img.style.opacity = String(1 - Math.min(Math.abs(dx) / 500, 0.5));
+  }, { passive: true });
+  stage.addEventListener('touchend', function () {
+    if (x0 === null) return;
+    img.style.transition = ''; img.style.transform = ''; img.style.opacity = '';
     if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
     x0 = null;
   }, { passive: true });

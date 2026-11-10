@@ -117,10 +117,6 @@
     else whenSeen(v, go, { threshold: 0.6 });
   });
 
-  /* ---------- Barra d'oro di lettura + intestazione di vetro ---------- */
-  var bar = document.createElement('div');
-  bar.className = 'mProgress'; bar.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(bar);
 
   /* ---------- Prima schermata: luce che segue il mouse, profondità allo scorrimento ---------- */
   var scene = $('.heroScene'), inner = $('.bigHeroInner'), video = $('.hsVideo'), photo = $('.hsPhotoBg');
@@ -141,24 +137,10 @@
   var scrubP = $('.promiseBand .promiseInner p'), scrubWords = [];
   if (scrubP) { scrubWords = splitWords(scrubP, 'mws'); scrubP.classList.add('mScrub'); }
 
-  /* ---------- Come funziona: linea d'oro ---------- */
-  var how = $('.howSteps'), howLine = null, steps = [];
+  /* ---------- Come funziona: i numeri si accendono uno dopo l'altro ---------- */
+  var how = $('.howSteps'), steps = [];
   if (how) {
     steps = $$('.howStep', how);
-    howLine = document.createElement('div');
-    howLine.className = 'mHowLine'; howLine.setAttribute('aria-hidden', 'true');
-    how.appendChild(howLine);
-    var place = function () {
-      if (steps.length < 2) return;
-      var a = $('b', steps[0]), z = $('b', steps[steps.length - 1]);
-      var hr = how.getBoundingClientRect(), ar = a.getBoundingClientRect(), zr = z.getBoundingClientRect();
-      howLine.style.left = (ar.left - hr.left + ar.width / 2) + 'px';
-      howLine.style.width = (zr.left - ar.left) + 'px';
-      howLine.style.top = (ar.top - hr.top + ar.height / 2 - 1) + 'px';
-    };
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('load', place);
   }
 
   /* ---------- Un solo ciclo per tutto ciò che dipende dallo scorrimento ---------- */
@@ -167,8 +149,6 @@
   function onScroll() {
     ticking = false;
     var y = window.scrollY || 0, vh = window.innerHeight;
-    var max = document.documentElement.scrollHeight - vh;
-    bar.style.transform = 'scaleX(' + (max > 0 ? clamp(y / max) : 0) + ')';
     root.classList.toggle('mScrolled', y > 12);
 
     if (hero && y < vh * 1.4) {
@@ -183,10 +163,9 @@
       var lit = Math.round(p * scrubWords.length);
       for (var i = 0; i < scrubWords.length; i++) scrubWords[i].classList.toggle('on', i < lit);
     }
-    if (howLine) {
+    if (how) {
       var h = how.getBoundingClientRect();
       var hp = clamp((vh * 0.85 - h.top) / (vh * 0.5));
-      howLine.style.setProperty('--p', hp.toFixed(3));
       steps.forEach(function (s, i) { s.classList.toggle('mLit', hp >= (steps.length > 1 ? i / (steps.length - 1) : 0) - 0.02 && hp > 0.03); });
     }
   }
@@ -263,7 +242,7 @@
   if (!fine) return; /* da qui in giù: solo con il mouse */
 
   /* ---------- Schede in 3D ---------- */
-  $$('.pillar, .givingCard, .howStep, .actionCard, .programmeItem, .transparencyCards .card, .galleryCard').forEach(function (card) {
+  $$('.pillar, .givingCard, .howStep, .actionCard, .programmeItem, .transparencyCards .card').forEach(function (card) {
     card.classList.add('mTilt');
     card.addEventListener('pointermove', function (e) {
       var r = card.getBoundingClientRect();
