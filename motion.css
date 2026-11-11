@@ -5,15 +5,6 @@
    Tutto si spegne per chi chiede meno animazioni al sistema.
    ============================================================ */
 
-/* ---------- Passaggio morbido tra le pagine (Chrome, Edge, Safari recenti) ---------- */
-@view-transition{navigation:auto}
-.topbar{view-transition-name:topbar}
-::view-transition-old(root){animation:vtOut .35s cubic-bezier(.4,0,.2,1) both}
-::view-transition-new(root){animation:vtIn .55s cubic-bezier(.2,.7,.2,1) both}
-@keyframes vtOut{to{opacity:0;transform:translateY(-14px) scale(.99)}}
-@keyframes vtIn{from{opacity:0;transform:translateY(24px)}}
-@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
-
 /* ---------- Intestazione: diventa di vetro quando scorri ---------- */
 .topbar{transition:background-color .4s ease,box-shadow .4s ease,backdrop-filter .4s ease}
 .mScrolled .topbar{background:rgba(255,255,255,.82);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 10px 30px rgba(7,40,30,.10)}
