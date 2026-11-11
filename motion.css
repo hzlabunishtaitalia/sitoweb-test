@@ -6,11 +6,8 @@
    ============================================================ */
 
 /* ---------- Passaggio morbido tra le pagine (Chrome, Edge, Safari recenti) ---------- */
-/* solo su computer: su iPhone lo lasciamo spento per sicurezza */
-@media (hover:hover) and (pointer:fine){
 @view-transition{navigation:auto}
 .topbar{view-transition-name:topbar}
-}
 ::view-transition-old(root){animation:vtOut .35s cubic-bezier(.4,0,.2,1) both}
 ::view-transition-new(root){animation:vtIn .55s cubic-bezier(.2,.7,.2,1) both}
 @keyframes vtOut{to{opacity:0;transform:translateY(-14px) scale(.99)}}
@@ -56,6 +53,7 @@
 .bigHero.hasScene .bigHeroInner>h1.mSplit,.pageHero .wrap>h1.mSplit{animation:none!important}
 
 /* ---------- Prima schermata ---------- */
+.heroScene{will-change:transform}
 .hsVideo,.hsPhotoBg{transition:transform .2s linear}
 .mGlow{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s ease;
   background:radial-gradient(420px circle at var(--gx,70%) var(--gy,40%),rgba(255,214,130,.38),rgba(255,214,130,0) 70%);mix-blend-mode:soft-light}
@@ -65,20 +63,18 @@
 @keyframes mCue{0%{transform:translateY(0);opacity:1}70%{transform:translateY(14px);opacity:0}100%{opacity:0}}
 @media (max-width:1023px){.mCue{display:none}}
 
-/* bordo d'oro che gira attorno al riquadro della donazione e luce sul pulsante d'oro: solo su computer */
+/* bordo d'oro che gira attorno al riquadro della donazione */
 @property --mAng{syntax:"<angle>";inherits:false;initial-value:0deg}
-.quickDonate{position:relative}
-.btn.gold{position:relative;overflow:hidden}
-@media (hover:hover) and (pointer:fine){
-.quickDonate{isolation:isolate}
+.quickDonate{position:relative;isolation:isolate}
 .quickDonate::before{content:"";position:absolute;inset:-1.5px;border-radius:23px;padding:1.5px;z-index:-1;pointer-events:none;
   background:conic-gradient(from var(--mAng),rgba(217,178,95,.15) 0deg,#f3d88e 40deg,#c9a24b 80deg,rgba(217,178,95,.15) 140deg,rgba(217,178,95,.15) 360deg);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:mSpin 6s linear infinite}
-.btn.gold::after{content:"";position:absolute;top:0;bottom:0;width:45%;left:0;transform:translateX(-140%) skewX(-20deg);pointer-events:none;
-  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));animation:mShine 4.5s 2.5s ease-in-out infinite}
-}
 @keyframes mSpin{to{--mAng:360deg}}
-@keyframes mShine{0%{transform:translateX(-140%) skewX(-20deg)}35%,100%{transform:translateX(300%) skewX(-20deg)}}
+/* luce che attraversa il pulsante d'oro */
+.btn.gold{position:relative;overflow:hidden}
+.btn.gold::after{content:"";position:absolute;top:0;bottom:0;width:45%;left:-60%;transform:skewX(-20deg);pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));animation:mShine 4.5s 2.5s ease-in-out infinite}
+@keyframes mShine{0%{left:-60%}35%,100%{left:130%}}
 .amountBtn{position:relative;overflow:hidden}
 .mRipple{position:absolute;border-radius:50%;background:rgba(217,178,95,.55);transform:scale(0);animation:mRip .6s ease-out forwards;pointer-events:none}
 @keyframes mRip{to{transform:scale(4);opacity:0}}
@@ -251,8 +247,3 @@
 
 /* Attività: meno vuoto tra intestazione e gallerie */
 main.content>section.content{padding-top:0}
-
-/* ---------- Modalità sicura: se la pagina si ricarica da sola più volte, le animazioni si spengono ---------- */
-.mSafe .mottoRow,.mSafe .pageHero,.mSafe .pageHero::after,.mSafe .quickDonate::before,.mSafe .btn.gold::after,
-.mSafe .bigHero.hasScene .bigHeroLogo img,.mSafe .promiseBand::after{animation:none!important}
-.mSafe .hsVideo{display:none}
