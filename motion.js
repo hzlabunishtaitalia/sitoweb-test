@@ -10,6 +10,23 @@
   if (mq && mq.matches) return;
 
   var root = document.documentElement;
+
+  /* Sicurezza: se il telefono ricarica la pagina da solo più volte di fila
+     (succede quando il browser va in difficoltà), le animazioni si spengono
+     per il resto della visita, così il sito resta fermo e leggibile. */
+  try {
+    var now = Date.now(), loads = JSON.parse(sessionStorage.getItem('hzLoads' + location.pathname) || '[]');
+    loads = loads.filter(function (t) { return now - t < 15000; });
+    loads.push(now);
+    sessionStorage.setItem('hzLoads' + location.pathname, JSON.stringify(loads));
+    if (loads.length >= 3) sessionStorage.setItem('hzSafe', '1');
+    if (sessionStorage.getItem('hzSafe') === '1') {
+      root.classList.add('mSafe');
+      var hv = document.querySelector('.hsVideo');
+      if (hv) { hv.pause(); hv.removeAttribute('autoplay'); hv.removeAttribute('src'); }
+      return;
+    }
+  } catch (e) {}
   var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   var mk = root.lang === 'mk';
   function $(s, c) { return (c || document).querySelector(s); }
