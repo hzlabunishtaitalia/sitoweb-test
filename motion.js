@@ -97,8 +97,11 @@
     startHero = function () {
       var done = false;
       function go() { if (done) return; done = true; heroTitle.classList.add('mGo'); }
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(go, 120); });
-      setTimeout(go, 1200);
+      /* aspetta che la pagina abbia tolto l'attesa dei caratteri (classe mWait) */
+      (function wait(n) {
+        if (!root.classList.contains('mWait') || n > 40) { setTimeout(go, 150); return; }
+        setTimeout(function () { wait(n + 1); }, 50);
+      })(0);
     };
     if (introDone) startHero();
   }

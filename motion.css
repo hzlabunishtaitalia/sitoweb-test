@@ -254,3 +254,8 @@ main.content>section.content{padding-top:0}
   .bigHero.hasScene .bigHeroInner>h1:not(.mSplit),.pageHero .wrap>h1:not(.mSplit),.heroVerse p:not(.mVerse){animation:mReveal .01s 1.5s both!important}
 }
 @keyframes mReveal{from{visibility:hidden}to{visibility:visible}}
+
+/* in attesa dei caratteri: il contenuto resta nascosto e le animazioni ferme, poi tutto parte una volta sola */
+main{transition:opacity .45s ease}
+.mWait main{opacity:0}
+.mWait .bigHero,.mWait .bigHero *,.mWait .pageHero,.mWait .pageHero *{animation-play-state:paused!important}
