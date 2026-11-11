@@ -93,7 +93,13 @@
   var heroTitle = hero ? $('h1', hero) : $('.pageHero h1');
   if (heroTitle) {
     prepTitle(heroTitle);
-    startHero = function () { setTimeout(function () { heroTitle.classList.add('mGo'); }, hero ? 250 : 120); };
+    /* il titolo parte una volta sola, quando il carattere è pronto: niente scatti */
+    startHero = function () {
+      var done = false;
+      function go() { if (done) return; done = true; heroTitle.classList.add('mGo'); }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(go, 120); });
+      setTimeout(go, 1200);
+    };
     if (introDone) startHero();
   }
   $$('main .head h2, .promiseBand h2').forEach(function (h) {

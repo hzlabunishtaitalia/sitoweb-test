@@ -247,3 +247,10 @@
 
 /* Attività: meno vuoto tra intestazione e gallerie */
 main.content>section.content{padding-top:0}
+
+/* ---------- Niente doppia comparsa: titolo e versetto restano nascosti finché l'animazione è pronta ----------
+   (se lo script non parte, compaiono comunque da soli dopo un secondo e mezzo) */
+@media (prefers-reduced-motion:no-preference){
+  .bigHero.hasScene .bigHeroInner>h1:not(.mSplit),.pageHero .wrap>h1:not(.mSplit),.heroVerse p:not(.mVerse){animation:mReveal .01s 1.5s both!important}
+}
+@keyframes mReveal{from{visibility:hidden}to{visibility:visible}}
